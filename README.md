@@ -10,7 +10,7 @@ Prérequis : Tailwind v4, projet shadcn en style **Radix** (`radix-*` dans `comp
 ```bash
 npx shadcn add @crdg/loniar              # thème + tous les composants
 npx shadcn add @crdg/loniar-theme        # thème seul
-npx shadcn add @crdg/button @crdg/states # à la carte
+npx shadcn add @crdg/button @crdg/empty-state # à la carte
 npx shadcn add @crdg/use-inertia-toasts  # projets Inertia : flash Laravel → toasts
 ```
 
