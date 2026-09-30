@@ -1,1 +1,10 @@
 .DS_Store
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+.vercel
+.env*.local
+# Généré depuis registry.json par scripts/theme-css.mjs
+app/theme.css
