@@ -8,3 +8,4 @@ next-env.d.ts
 .env*.local
 # Généré depuis registry.json par scripts/theme-css.mjs
 app/theme.css
+.env*
