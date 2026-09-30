@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { useAppearance, type Appearance } from '@/hooks/use-appearance';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 
@@ -11,6 +12,9 @@ const OPTIONS: [Appearance, string][] = [
 
 export default function UseAppearanceExample() {
     const { appearance, resolvedAppearance, updateAppearance } = useAppearance();
+    // Le mode résolu dépend du navigateur : on l'affiche après le montage pour ne pas diverger du HTML du serveur.
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => setMounted(true), []);
 
     return (
         <div className="flex flex-col items-center gap-3">
@@ -26,7 +30,7 @@ export default function UseAppearanceExample() {
                 ))}
             </ToggleGroup>
             <p className="text-muted-foreground">
-                Préférence : {appearance} · appliqué : {resolvedAppearance}
+                Préférence : {appearance} · appliqué : {mounted ? resolvedAppearance : '…'}
             </p>
         </div>
     );

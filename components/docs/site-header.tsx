@@ -19,10 +19,10 @@ export function SiteHeader() {
                     <span className="hidden font-normal text-muted-foreground sm:inline">registre shadcn</span>
                 </Link>
                 <div className="ml-auto flex items-center gap-1">
-                    <Button variant="ghost" size="sm" nativeButton={false} render={<Link href="/installation" />}>
+                    <Button variant="ghost" size="sm" className="max-sm:hidden" nativeButton={false} render={<Link href="/installation" />}>
                         Installation
                     </Button>
-                    <Button variant="ghost" size="sm" nativeButton={false} render={<Link href="/docs/button" />}>
+                    <Button variant="ghost" size="sm" className="max-sm:hidden" nativeButton={false} render={<Link href="/docs/button" />}>
                         Composants
                     </Button>
                     <Button

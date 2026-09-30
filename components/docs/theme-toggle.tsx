@@ -5,24 +5,26 @@ import { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { initializeTheme, useAppearance } from '@/hooks/use-appearance';
 
-/** Bascule clair/sombre, branchée sur @crdg/use-appearance comme dans un projet réel. */
+/**
+ * Bascule clair/sombre, branchée sur @crdg/use-appearance comme dans un projet réel. L'icône
+ * suit la classe .dark en CSS : le serveur ne connaît pas le mode, le rendu reste identique.
+ */
 export function ThemeToggle() {
-    const { resolvedAppearance, updateAppearance } = useAppearance();
+    const { updateAppearance } = useAppearance();
 
     useEffect(() => {
         initializeTheme();
     }, []);
 
-    const isDark = resolvedAppearance === 'dark';
-
     return (
         <Button
             variant="ghost"
             size="icon-sm"
-            aria-label={isDark ? 'Passer en thème clair' : 'Passer en thème sombre'}
-            onClick={() => updateAppearance(isDark ? 'light' : 'dark')}
+            aria-label="Basculer le thème clair/sombre"
+            onClick={() => updateAppearance(document.documentElement.classList.contains('dark') ? 'light' : 'dark')}
         >
-            {isDark ? <SunIcon /> : <MoonIcon />}
+            <SunIcon className="hidden dark:block" />
+            <MoonIcon className="dark:hidden" />
         </Button>
     );
 }
