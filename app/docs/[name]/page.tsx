@@ -40,19 +40,19 @@ function Dependencies({ item }: { item: RegistryItem }) {
     const registry = item.registryDependencies ?? [];
 
     if (npm.length === 0 && registry.length === 0) {
-        return <p className="text-muted-foreground">Aucune dépendance.</p>;
+        return <p className="text-muted-foreground">No dependencies.</p>;
     }
 
     return (
         <dl className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-1.5">
-                <dt className="text-xs font-medium text-muted-foreground">Paquets npm</dt>
+                <dt className="text-xs font-medium text-muted-foreground">npm packages</dt>
                 <dd className="flex flex-wrap gap-1.5 font-mono text-xs">
                     {npm.length ? npm.map((dep) => <span key={dep} className="rounded-md border bg-surface-2 px-1.5 py-0.5">{dep}</span>) : '—'}
                 </dd>
             </div>
             <div className="space-y-1.5">
-                <dt className="text-xs font-medium text-muted-foreground">Dépendances du registre</dt>
+                <dt className="text-xs font-medium text-muted-foreground">Registry dependencies</dt>
                 <dd className="flex flex-wrap gap-1.5 font-mono text-xs">
                     {registry.length
                         ? registry.map((dep) => (
@@ -91,7 +91,7 @@ export default async function ItemPage({ params }: Props) {
                 <Command value={`npx shadcn add @crdg/${item.name}`} />
                 {file?.target && (
                     <p className="text-muted-foreground">
-                        Déposé dans <code className="font-mono text-xs">{file.target}</code>.
+                        Installed to <code className="font-mono text-xs">{file.target}</code>.
                     </p>
                 )}
             </section>
@@ -100,7 +100,7 @@ export default async function ItemPage({ params }: Props) {
 
             {source && file && (
                 <section className="space-y-3">
-                    <h2 className="text-lg font-semibold">{example ? 'Exemple' : 'Code'}</h2>
+                    <h2 className="text-lg font-semibold">{example ? 'Example' : 'Code'}</h2>
                     <ItemTabs
                         name={item.name}
                         code={example ? <CodeBlock code={example} title={`examples/${item.name}.tsx`} /> : undefined}
@@ -111,15 +111,15 @@ export default async function ItemPage({ params }: Props) {
 
             {item.type === 'registry:item' && (
                 <section className="space-y-3">
-                    <h2 className="text-lg font-semibold">Contenu</h2>
+                    <h2 className="text-lg font-semibold">Contents</h2>
                     <p className="text-fg-2">
-                        Installe le thème et {(item.registryDependencies?.length ?? 1) - 1} items en une commande.
+                        Installs the theme and {(item.registryDependencies?.length ?? 1) - 1} items in one command.
                     </p>
                 </section>
             )}
 
             <section className="space-y-3">
-                <h2 className="text-lg font-semibold">Dépendances</h2>
+                <h2 className="text-lg font-semibold">Dependencies</h2>
                 <Dependencies item={item} />
             </section>
         </article>

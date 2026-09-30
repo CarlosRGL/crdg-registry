@@ -6,7 +6,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Blocs de code Shiki : double thème piloté par la classe .dark. */
+/* Shiki code blocks: dual theme driven by the .dark class. */
 .shiki,
 .shiki span {
   background-color: transparent !important;

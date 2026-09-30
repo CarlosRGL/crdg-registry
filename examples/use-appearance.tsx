@@ -5,14 +5,14 @@ import { useAppearance, type Appearance } from '@/hooks/use-appearance';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 
 const OPTIONS: [Appearance, string][] = [
-    ['light', 'Clair'],
-    ['dark', 'Sombre'],
-    ['system', 'Système'],
+    ['light', 'Light'],
+    ['dark', 'Dark'],
+    ['system', 'System'],
 ];
 
 export default function UseAppearanceExample() {
     const { appearance, resolvedAppearance, updateAppearance } = useAppearance();
-    // Le mode résolu dépend du navigateur : on l'affiche après le montage pour ne pas diverger du HTML du serveur.
+    // The resolved mode depends on the browser: it is shown after mount to avoid diverging from the server HTML.
     const [mounted, setMounted] = useState(false);
     useEffect(() => setMounted(true), []);
 
@@ -30,7 +30,7 @@ export default function UseAppearanceExample() {
                 ))}
             </ToggleGroup>
             <p className="text-muted-foreground">
-                Préférence : {appearance} · appliqué : {mounted ? resolvedAppearance : '…'}
+                Preference: {appearance} · applied: {mounted ? resolvedAppearance : '…'}
             </p>
         </div>
     );

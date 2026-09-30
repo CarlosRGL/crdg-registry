@@ -29,7 +29,7 @@ export async function CodeBlock({
     );
 }
 
-/** Commande sur une ligne, copiable : `npx shadcn add @crdg/...`. */
+/** Copyable one-line command : `npx shadcn add @crdg/...`. */
 export function Command({ value }: { value: string }) {
     return (
         <div className="flex items-center justify-between gap-2 rounded-lg border bg-surface-2 py-1 pr-1 pl-3 font-mono text-[12.5px]">

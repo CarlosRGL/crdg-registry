@@ -17,9 +17,9 @@ export type Category = { slug: string; label: string; items: RegistryItem[] };
 export const items = registry.items as RegistryItem[];
 
 const CATEGORIES: { slug: string; label: string; match: (item: RegistryItem) => boolean }[] = [
-    { slug: 'theme', label: 'Thème', match: (i) => i.type === 'registry:theme' || i.type === 'registry:item' },
-    { slug: 'ui', label: 'Composants', match: (i) => i.type === 'registry:ui' },
-    { slug: 'states', label: 'États', match: (i) => i.type === 'registry:component' },
+    { slug: 'theme', label: 'Theme', match: (i) => i.type === 'registry:theme' || i.type === 'registry:item' },
+    { slug: 'ui', label: 'Components', match: (i) => i.type === 'registry:ui' },
+    { slug: 'states', label: 'States', match: (i) => i.type === 'registry:component' },
     { slug: 'hooks', label: 'Hooks', match: (i) => i.type === 'registry:hook' },
 ];
 
@@ -37,7 +37,7 @@ export function categoryOf(item: RegistryItem): Category {
     return categories.find((category) => category.items.includes(item))!;
 }
 
-/** « dropdown-menu » → « Dropdown menu » quand l'item n'a pas de titre. */
+/** "dropdown-menu" → "Dropdown menu" when the item has no title. */
 export function titleOf(item: RegistryItem): string {
     if (item.title) {
         return item.title;

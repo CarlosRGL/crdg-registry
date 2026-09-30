@@ -6,9 +6,9 @@ import { ExamplePreview } from '@/examples';
 
 type Tab = 'preview' | 'code' | 'source';
 
-const LABELS: Record<Tab, string> = { preview: 'Aperçu', code: 'Code', source: 'Source' };
+const LABELS: Record<Tab, string> = { preview: 'Preview', code: 'Code', source: 'Source' };
 
-/** Aperçu interactif, code de l'exemple, fichier distribué par le registre. */
+/** Interactive preview, example code, and the file distributed by the registry. */
 export function ItemTabs({ name, code, source }: { name: string; code?: ReactNode; source: ReactNode }) {
     const tabs: Tab[] = code ? ['preview', 'code', 'source'] : ['source'];
     const [tab, setTab] = useState<Tab>(tabs[0]);
@@ -20,7 +20,7 @@ export function ItemTabs({ name, code, source }: { name: string; code?: ReactNod
                 size="sm"
                 value={[tab]}
                 onValueChange={(next) => next[0] && setTab(next[0] as Tab)}
-                aria-label="Affichage"
+                aria-label="View"
             >
                 {tabs.map((value) => (
                     <ToggleGroupItem key={value} value={value}>

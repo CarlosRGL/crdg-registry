@@ -3,39 +3,39 @@
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 
-// Le <Toaster /> est monté une fois dans la mise en page du site.
+// The <Toaster /> is mounted once in the site layout.
 export default function SonnerExample() {
     return (
         <div className="flex flex-wrap justify-center gap-2">
-            <Button variant="outline" onClick={() => toast('Rendez-vous déplacé')}>
-                Neutre
+            <Button variant="outline" onClick={() => toast('Appointment rescheduled')}>
+                Neutral
             </Button>
-            <Button variant="outline" onClick={() => toast.success('Modifications enregistrées')}>
-                Succès
+            <Button variant="outline" onClick={() => toast.success('Changes saved')}>
+                Success
             </Button>
-            <Button variant="outline" onClick={() => toast.info('Nouvelle version disponible')}>
+            <Button variant="outline" onClick={() => toast.info('New version available')}>
                 Info
             </Button>
-            <Button variant="outline" onClick={() => toast.warning('Créneau presque complet')}>
-                Avertissement
+            <Button variant="outline" onClick={() => toast.warning('Slot almost full')}>
+                Warning
             </Button>
             <Button
                 variant="outline"
-                onClick={() => toast.error("L'envoi a échoué", { description: 'Le serveur ne répond pas.' })}
+                onClick={() => toast.error("Sending failed", { description: 'The server is not responding.' })}
             >
-                Erreur
+                Error
             </Button>
             <Button
                 variant="outline"
                 onClick={() =>
                     toast.promise(new Promise((resolve) => setTimeout(resolve, 1500)), {
-                        loading: 'Envoi en cours…',
-                        success: 'Envoyé',
-                        error: 'Échec',
+                        loading: 'Sending…',
+                        success: 'Sent',
+                        error: 'Failed',
                     })
                 }
             >
-                Promesse
+                Promise
             </Button>
         </div>
     );

@@ -10,9 +10,9 @@ import {
 } from '@/components/ui/navigation-menu';
 
 const DEMARCHES = [
-    { title: "Carte d'identité", description: 'Première demande ou renouvellement.' },
-    { title: 'Passeport', description: 'Adulte ou mineur, avec pré-demande.' },
-    { title: 'Urbanisme', description: 'Rendez-vous avec le service instructeur.' },
+    { title: "ID card", description: 'First application or renewal.' },
+    { title: 'Passport', description: 'Adult or minor, with pre-application.' },
+    { title: 'Urban planning', description: 'Appointment with the reviewing department.' },
 ];
 
 export default function NavigationMenuExample() {
@@ -20,7 +20,7 @@ export default function NavigationMenuExample() {
         <NavigationMenu>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Démarches</NavigationMenuTrigger>
+                    <NavigationMenuTrigger>Services</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-80 gap-1 p-2">
                             {DEMARCHES.map((item) => (
@@ -35,7 +35,7 @@ export default function NavigationMenuExample() {
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuLink href="#">Horaires</NavigationMenuLink>
+                    <NavigationMenuLink href="#">Opening hours</NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuLink href="#">Contact</NavigationMenuLink>

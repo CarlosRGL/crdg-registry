@@ -21,7 +21,7 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-// Base UI : onClick (onSelect ne se déclenche jamais), et un libellé vit dans un groupe.
+// Base UI: use onClick (onSelect never fires), and a label must live inside a group.
 export default function DropdownMenuExample() {
     const [showArchived, setShowArchived] = useState(false);
     const [density, setDensity] = useState('compact');
@@ -37,12 +37,12 @@ export default function DropdownMenuExample() {
                         Modifier
                         <DropdownMenuShortcut>⌘E</DropdownMenuShortcut>
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => toast.success('Lien copié')}>
+                    <DropdownMenuItem onClick={() => toast.success('Link copied')}>
                         <CopyIcon />
-                        Copier le lien
+                        Copy link
                     </DropdownMenuItem>
                     <DropdownMenuSub>
-                        <DropdownMenuSubTrigger>Déplacer vers</DropdownMenuSubTrigger>
+                        <DropdownMenuSubTrigger>Move to</DropdownMenuSubTrigger>
                         <DropdownMenuSubContent>
                             <DropdownMenuItem onClick={() => toast('Guichet 1')}>Guichet 1</DropdownMenuItem>
                             <DropdownMenuItem onClick={() => toast('Guichet 2')}>Guichet 2</DropdownMenuItem>
@@ -51,9 +51,9 @@ export default function DropdownMenuExample() {
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                    <DropdownMenuLabel>Affichage</DropdownMenuLabel>
+                    <DropdownMenuLabel>View</DropdownMenuLabel>
                     <DropdownMenuCheckboxItem checked={showArchived} onCheckedChange={setShowArchived}>
-                        Afficher les archivés
+                        Show archived
                     </DropdownMenuCheckboxItem>
                     <DropdownMenuRadioGroup value={density} onValueChange={setDensity}>
                         <DropdownMenuRadioItem value="compact">Compact</DropdownMenuRadioItem>
@@ -61,9 +61,9 @@ export default function DropdownMenuExample() {
                     </DropdownMenuRadioGroup>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem variant="destructive" onClick={() => toast.error('Rendez-vous annulé')}>
+                <DropdownMenuItem variant="destructive" onClick={() => toast.error('Appointment cancelled')}>
                     <Trash2Icon />
-                    Annuler le rendez-vous
+                    Cancel appointment
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>

@@ -8,15 +8,15 @@ export default function SwitchExample() {
         <div className="flex flex-col gap-3">
             <Label className="flex items-center gap-2">
                 <Switch defaultChecked />
-                Réservation en ligne ouverte
+                Online booking open
             </Label>
             <Label className="flex items-center gap-2">
                 <Switch size="sm" />
-                Taille « sm »
+                Size "sm"
             </Label>
             <Label className="flex items-center gap-2 opacity-60">
                 <Switch disabled />
-                Désactivé
+                Disabled
             </Label>
         </div>
     );

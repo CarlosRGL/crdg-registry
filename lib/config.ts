@@ -1,6 +1,6 @@
 /**
- * URL publique du site. Le registre est servi sous `${SITE_URL}/r/{name}.json`.
- * À surcharger par NEXT_PUBLIC_REGISTRY_URL (Vercel : variable d'environnement du projet).
+ * Public site URL. The registry is served under `${SITE_URL}/r/{name}.json`.
+ * Override with NEXT_PUBLIC_REGISTRY_URL (on Vercel: a project environment variable).
  */
 export const SITE_URL = (
     process.env.NEXT_PUBLIC_REGISTRY_URL ?? 'https://crdg-registry.vercel.app'

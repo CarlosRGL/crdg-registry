@@ -3,7 +3,7 @@
 import { Toaster } from '@/components/ui/sonner';
 import { TooltipProvider } from '@/components/ui/tooltip';
 
-/** Les fichiers du registre n'ont pas de directive 'use client' : on les monte d'ici. */
+/** Registry files have no 'use client' directive, so they are mounted from here. */
 export function Providers({ children }: { children: React.ReactNode }) {
     return (
         <TooltipProvider>

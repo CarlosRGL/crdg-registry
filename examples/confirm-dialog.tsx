@@ -13,17 +13,17 @@ export default function ConfirmDialogExample() {
         <ConfirmDialog
             open={open}
             onOpenChange={setOpen}
-            trigger={<Button variant="destructive">Annuler le rendez-vous</Button>}
-            title="Annuler ce rendez-vous ?"
-            description="L'usager recevra un e-mail d'annulation. Cette action est définitive."
-            confirmLabel="Annuler le rendez-vous"
+            trigger={<Button variant="destructive">Cancel appointment</Button>}
+            title="Cancel this appointment?"
+            description="The resident will receive a cancellation email. This action is permanent."
+            confirmLabel="Cancel appointment"
             processing={processing}
             onConfirm={() => {
                 setProcessing(true);
                 setTimeout(() => {
                     setProcessing(false);
                     setOpen(false);
-                    toast.success('Rendez-vous annulé');
+                    toast.success('Appointment cancelled');
                 }, 1000);
             }}
         />

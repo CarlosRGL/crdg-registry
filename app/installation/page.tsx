@@ -28,45 +28,45 @@ export default function InstallationPage() {
             <header className="space-y-2">
                 <h1 className="text-2xl font-semibold tracking-tight">Installation</h1>
                 <p className="text-base text-fg-2">
-                    Le registre se branche sur n'importe quel projet shadcn : Next.js, Vite, Laravel + Inertia…
+                    The registry works with any shadcn project: Next.js, Vite, Laravel + Inertia…
                 </p>
             </header>
 
-            <Step n={1} title="Prérequis">
+            <Step n={1} title="Requirements">
                 <ul className="list-disc space-y-1 pl-5 text-fg-2">
                     <li>
-                        <strong className="text-foreground">Tailwind CSS v4</strong> (aucun <code>tailwind.config.js</code>).
+                        <strong className="text-foreground">Tailwind CSS v4</strong> (no <code>tailwind.config.js</code>).
                     </li>
                     <li>
-                        Un projet shadcn en style <strong className="text-foreground">Base UI</strong> : <code>&quot;style&quot;: &quot;base-*&quot;</code>{' '}
-                        dans <code>components.json</code> (le défaut de <code>shadcn init</code>). Les composants dépendent de{' '}
-                        <code>@base-ui/react</code>, pas de Radix.
+                        A shadcn project using a <strong className="text-foreground">Base UI</strong> style: <code>&quot;style&quot;: &quot;base-*&quot;</code>{' '}
+                        in <code>components.json</code> (the <code>shadcn init</code> default). Components depend on{' '}
+                        <code>@base-ui/react</code>, not Radix.
                     </li>
                 </ul>
                 <Command value="npx shadcn@latest init" />
             </Step>
 
-            <Step n={2} title="Déclarer le registre">
+            <Step n={2} title="Add the registry">
                 <p className="text-fg-2">
-                    Ajoutez <code>@crdg</code> aux registres de <code>components.json</code> :
+                    Add <code>@crdg</code> to the registries in <code>components.json</code>:
                 </p>
-                <CodeBlock code={componentsJson} lang="json" title="components.json (extrait)" />
+                <CodeBlock code={componentsJson} lang="json" title="components.json (excerpt)" />
             </Step>
 
-            <Step n={3} title="Installer">
-                <p className="text-fg-2">Tout d'un coup — thème et composants :</p>
+            <Step n={3} title="Install">
+                <p className="text-fg-2">Everything at once — theme and components:</p>
                 <Command value="npx shadcn add @crdg/loniar" />
-                <p className="text-fg-2">Ou à la carte :</p>
+                <p className="text-fg-2">Or one by one:</p>
                 <Command value="npx shadcn add @crdg/loniar-theme" />
                 <Command value="npx shadcn add @crdg/button @crdg/empty-state" />
-                <p className="text-fg-2">Projets Inertia : les messages flash de Laravel deviennent des toasts.</p>
+                <p className="text-fg-2">Inertia projects: Laravel flash messages become toasts.</p>
                 <Command value="npx shadcn add @crdg/use-inertia-toasts" />
             </Step>
 
-            <Step n={4} title="Brancher le thème et les toasts">
+            <Step n={4} title="Wire up the theme and toasts">
                 <p className="text-fg-2">
-                    <code>initializeTheme()</code> (<code>@crdg/use-appearance</code>) s&apos;appelle au démarrage de
-                    l&apos;application ; <code>useInertiaToasts()</code> une seule fois, à côté du <code>&lt;Toaster /&gt;</code>.
+                    <code>initializeTheme()</code> (<code>@crdg/use-appearance</code>) runs when the app starts;{' '}
+                    <code>useInertiaToasts()</code> runs once, next to the <code>&lt;Toaster /&gt;</code>.
                 </p>
                 <CodeBlock
                     title="app.tsx"
@@ -89,9 +89,9 @@ function Shell({ children }: { children: React.ReactNode }) {
                 />
             </Step>
 
-            <Step n={5} title="Accès direct">
+            <Step n={5} title="Direct access">
                 <p className="text-fg-2">
-                    Chaque item est un JSON public, lisible sans configuration :
+                    Every item is a public JSON file, readable without any configuration:
                 </p>
                 <Command value={`npx shadcn add ${REGISTRY_URL.replace('{name}', 'button')}`} />
             </Step>

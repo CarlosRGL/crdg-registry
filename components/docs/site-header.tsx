@@ -16,14 +16,14 @@ export function SiteHeader() {
                         cr
                     </span>
                     @crdg
-                    <span className="hidden font-normal text-muted-foreground sm:inline">registre shadcn</span>
+                    <span className="hidden font-normal text-muted-foreground sm:inline">shadcn registry</span>
                 </Link>
                 <div className="ml-auto flex items-center gap-1">
                     <Button variant="ghost" size="sm" className="max-sm:hidden" nativeButton={false} render={<Link href="/installation" />}>
                         Installation
                     </Button>
                     <Button variant="ghost" size="sm" className="max-sm:hidden" nativeButton={false} render={<Link href="/docs/button" />}>
-                        Composants
+                        Components
                     </Button>
                     <Button
                         variant="ghost"

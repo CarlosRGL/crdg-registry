@@ -1,4 +1,4 @@
-"""Génère registry.json (item loniar-theme) à partir de l'app.css de vernalis-rdv."""
+"""Generates registry.json (loniar-theme item) from the vernalis-rdv app.css."""
 import json, re, sys
 
 SRC = sys.argv[1]
@@ -20,13 +20,13 @@ for m in re.finditer(r'^@theme(?: inline)? \{\n(.*?)^\}', css, re.S | re.M):
     for name, value in re.findall(r'--([\w-]+):\s*(.*?);', body, re.S):
         theme[name] = ' '.join(value.split())
 
-# Le vitrine (.site-page, --ease-out-strong) et le calendrier restent à Vernalis.
+# The showcase (.site-page, --ease-out-strong) and the calendar stay in Vernalis.
 item = {
     "$schema": "https://ui.shadcn.com/schema/registry-item.json",
     "name": "loniar-theme",
     "type": "registry:theme",
     "title": "Loniar",
-    "description": "Neutres chauds, accent indigo, échelle de texte dense (13,5 px), ombres chaudes. Clair et sombre.",
+    "description": "Warm neutrals, indigo accent, dense type scale (13.5px), warm shadows. Light and dark.",
     "author": "crdg",
     "registryDependencies": ["font-geist"],
     "dependencies": ["tw-animate-css"],

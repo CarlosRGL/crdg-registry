@@ -7,7 +7,7 @@ export default function UseMobileExample() {
 
     return (
         <p>
-            Fenêtre actuelle : <strong>{isMobile ? 'mobile (< 768 px)' : 'bureau'}</strong>. Redimensionnez pour voir la valeur changer.
+            Current window: <strong>{isMobile ? 'mobile (< 768 px)' : 'desktop'}</strong>. Resize to see the value change.
         </p>
     );
 }

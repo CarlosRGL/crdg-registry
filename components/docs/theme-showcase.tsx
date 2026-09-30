@@ -7,10 +7,10 @@ const cssVars = (items.find((item) => item.name === 'loniar-theme') as unknown a
 
 const COLOR_GROUPS: { label: string; tokens: string[] }[] = [
     { label: 'Surfaces', tokens: ['background', 'card', 'popover', 'surface-2', 'surface-3', 'sunken', 'muted', 'accent', 'secondary', 'sidebar'] },
-    { label: 'Texte', tokens: ['foreground', 'fg-2', 'fg-3', 'fg-4', 'muted-foreground'] },
-    { label: 'Accent et bordures', tokens: ['primary', 'primary-soft', 'primary-line', 'ring', 'border', 'border-strong', 'input', 'divider'] },
-    { label: 'Statuts', tokens: ['success', 'success-muted', 'warning', 'warning-muted', 'info', 'info-muted', 'destructive', 'destructive-soft'] },
-    { label: 'Tons', tokens: Object.keys(cssVars.light).filter((name) => name.startsWith('tone-')) },
+    { label: 'Text', tokens: ['foreground', 'fg-2', 'fg-3', 'fg-4', 'muted-foreground'] },
+    { label: 'Accent and borders', tokens: ['primary', 'primary-soft', 'primary-line', 'ring', 'border', 'border-strong', 'input', 'divider'] },
+    { label: 'Statuses', tokens: ['success', 'success-muted', 'warning', 'warning-muted', 'info', 'info-muted', 'destructive', 'destructive-soft'] },
+    { label: 'Tones', tokens: Object.keys(cssVars.light).filter((name) => name.startsWith('tone-')) },
 ];
 
 const TEXT_SIZES = Object.keys(cssVars.theme)
@@ -35,13 +35,13 @@ function Section({ title, description, children }: { title: string; description?
 export function ThemeShowcase() {
     return (
         <div className="space-y-12">
-            <Section title="Mode" description="Les variables .dark remplacent celles de :root ; le choix est mémorisé par @crdg/use-appearance.">
+            <Section title="Mode" description="The .dark variables override those of :root; the choice is persisted by @crdg/use-appearance.">
                 <div className="flex justify-start">
                     <ExamplePreview name="use-appearance" />
                 </div>
             </Section>
 
-            <Section title="Palette" description="Chaque pastille lit sa variable CSS : elle suit le mode actif. Valeurs claire / sombre en dessous.">
+            <Section title="Palette" description="Each swatch reads its CSS variable, so it follows the active mode. Light / dark values below.">
                 {COLOR_GROUPS.map((group) => (
                     <div key={group.label} className="space-y-2">
                         <h3 className="text-xs font-medium text-muted-foreground">{group.label}</h3>
@@ -64,7 +64,7 @@ export function ThemeShowcase() {
                 ))}
             </Section>
 
-            <Section title="Typographie" description="Geist Variable, échelle dense : text-sm vaut 13,5 px et sert de corps par défaut.">
+            <Section title="Typography" description="Geist Variable, dense scale: text-sm is 13.5px and is the default body size.">
                 <div className="divide-y rounded-lg border bg-card">
                     {TEXT_SIZES.map((size) => (
                         <div key={size} className="flex items-baseline gap-4 px-4 py-2.5">
@@ -74,14 +74,14 @@ export function ThemeShowcase() {
                                 {cssVars.theme[`text-${size}`]} / {cssVars.theme[`text-${size}--line-height`]}
                             </span>
                             <span style={{ fontSize: `var(--text-${size})`, lineHeight: `var(--text-${size}--line-height)` }}>
-                                Prendre rendez-vous à la mairie
+                                Book an appointment at city hall
                             </span>
                         </div>
                     ))}
                 </div>
             </Section>
 
-            <Section title="Rayons" description={`Dérivés de --radius (${cssVars.light.radius}).`}>
+            <Section title="Radii" description={`Derived from --radius (${cssVars.light.radius}).`}>
                 <div className="flex flex-wrap gap-4">
                     {RADII.map((radius) => (
                         <div key={radius} className="flex flex-col items-center gap-1.5">
@@ -95,7 +95,7 @@ export function ThemeShowcase() {
                 </div>
             </Section>
 
-            <Section title="Ombres" description="Ombres chaudes, teintées du brun des neutres plutôt que du noir.">
+            <Section title="Shadows" description="Warm shadows, tinted with the brown of the neutrals rather than black.">
                 <div className="grid grid-cols-2 gap-6 rounded-xl bg-sunken p-6 sm:grid-cols-4">
                     {SHADOWS.map((shadow) => (
                         <div

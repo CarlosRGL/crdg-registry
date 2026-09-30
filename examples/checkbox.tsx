@@ -8,15 +8,15 @@ export default function CheckboxExample() {
         <div className="flex flex-col gap-3">
             <Label className="flex items-center gap-2">
                 <Checkbox defaultChecked />
-                Envoyer un rappel par SMS
+                Send a reminder by SMS
             </Label>
             <Label className="flex items-center gap-2">
                 <Checkbox />
-                Envoyer un rappel par e-mail
+                Send a reminder by email
             </Label>
             <Label className="flex items-center gap-2 opacity-60">
                 <Checkbox disabled />
-                Option indisponible
+                Option unavailable
             </Label>
         </div>
     );

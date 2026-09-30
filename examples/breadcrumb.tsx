@@ -15,7 +15,7 @@ export default function BreadcrumbExample() {
         <Breadcrumb>
             <BreadcrumbList>
                 <BreadcrumbItem>
-                    <BreadcrumbLink href="#">Accueil</BreadcrumbLink>
+                    <BreadcrumbLink href="#">Home</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
@@ -23,11 +23,11 @@ export default function BreadcrumbExample() {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                    <BreadcrumbLink href="#">Paramètres</BreadcrumbLink>
+                    <BreadcrumbLink href="#">Settings</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                    <BreadcrumbPage>Guichets</BreadcrumbPage>
+                    <BreadcrumbPage>Counters</BreadcrumbPage>
                 </BreadcrumbItem>
             </BreadcrumbList>
         </Breadcrumb>

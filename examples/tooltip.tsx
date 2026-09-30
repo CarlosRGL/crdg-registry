@@ -5,10 +5,10 @@ import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
 const SIDES = [
-    ['top', 'Haut'],
-    ['right', 'Droite'],
-    ['bottom', 'Bas'],
-    ['left', 'Gauche'],
+    ['top', 'Top'],
+    ['right', 'Right'],
+    ['bottom', 'Bottom'],
+    ['left', 'Left'],
 ] as const;
 
 export default function TooltipExample() {
@@ -20,7 +20,7 @@ export default function TooltipExample() {
                         <InfoIcon data-icon="inline-start" />
                         {label}
                     </TooltipTrigger>
-                    <TooltipContent side={side}>Infobulle côté « {label.toLowerCase()} »</TooltipContent>
+                    <TooltipContent side={side}>Tooltip on the {label.toLowerCase()} side</TooltipContent>
                 </Tooltip>
             ))}
         </div>

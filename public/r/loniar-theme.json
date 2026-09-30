@@ -3,7 +3,7 @@
   "name": "loniar-theme",
   "title": "Loniar",
   "author": "crdg",
-  "description": "Neutres chauds, accent indigo, échelle de texte dense (13,5 px), ombres chaudes. Clair et sombre.",
+  "description": "Warm neutrals, indigo accent, dense type scale (13.5px), warm shadows. Light and dark.",
   "dependencies": [
     "tw-animate-css"
   ],

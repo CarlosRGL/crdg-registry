@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "loniar",
-  "title": "Loniar (thème + composants)",
+  "title": "Loniar (theme + components)",
   "registryDependencies": [
     "@crdg/loniar-theme",
     "@crdg/alert",

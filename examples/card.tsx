@@ -9,8 +9,8 @@ export default function CardExample() {
         <div className="grid w-full max-w-2xl gap-4 sm:grid-cols-2">
             <Card>
                 <CardHeader>
-                    <CardTitle>Guichet principal</CardTitle>
-                    <CardDescription>Passeports et cartes d'identité</CardDescription>
+                    <CardTitle>Main counter</CardTitle>
+                    <CardDescription>Passports and ID cards</CardDescription>
                     <CardAction>
                         <Button variant="ghost" size="icon-sm" aria-label="Actions">
                             <MoreHorizontalIcon />
@@ -19,20 +19,20 @@ export default function CardExample() {
                 </CardHeader>
                 <CardContent>
                     <p className="text-2xl font-semibold tabular-nums">86 %</p>
-                    <p className="text-muted-foreground">taux d'occupation cette semaine</p>
+                    <p className="text-muted-foreground">occupancy rate this week</p>
                 </CardContent>
                 <CardFooter>
                     <Button variant="outline" size="sm">
-                        Voir le planning
+                        View schedule
                     </Button>
                 </CardFooter>
             </Card>
             <Card size="sm">
                 <CardHeader>
-                    <CardTitle>Taille « sm »</CardTitle>
-                    <CardDescription>Espacements resserrés.</CardDescription>
+                    <CardTitle>Size "sm"</CardTitle>
+                    <CardDescription>Tighter spacing.</CardDescription>
                 </CardHeader>
-                <CardContent>12 rendez-vous aujourd'hui.</CardContent>
+                <CardContent>12 appointments today.</CardContent>
             </Card>
         </div>
     );

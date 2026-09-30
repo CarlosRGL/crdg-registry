@@ -7,16 +7,16 @@ export default function InputExample() {
     return (
         <div className="grid w-full max-w-sm gap-4">
             <div className="grid gap-2">
-                <Label htmlFor="email">Adresse e-mail</Label>
-                <Input id="email" type="email" placeholder="prenom.nom@exemple.fr" />
+                <Label htmlFor="email">Email address</Label>
+                <Input id="email" type="email" placeholder="first.last@example.com" />
             </div>
             <div className="grid gap-2">
-                <Label htmlFor="phone">Téléphone (invalide)</Label>
+                <Label htmlFor="phone">Phone (invalid)</Label>
                 <Input id="phone" aria-invalid defaultValue="06 12" />
             </div>
             <div className="grid gap-2">
-                <Label htmlFor="disabled">Désactivé</Label>
-                <Input id="disabled" disabled placeholder="Non modifiable" />
+                <Label htmlFor="disabled">Disabled</Label>
+                <Input id="disabled" disabled placeholder="Read-only" />
             </div>
         </div>
     );

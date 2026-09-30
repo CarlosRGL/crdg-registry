@@ -19,38 +19,38 @@ export default function SelectExample() {
     return (
         <div className="flex flex-wrap items-end gap-6">
             <div className="grid gap-2">
-                <Label>Démarche</Label>
+                <Label>Service</Label>
                 <Select value={service} onValueChange={setService}>
                     <SelectTrigger className="w-56">
-                        <SelectValue placeholder="Choisir une démarche" />
+                        <SelectValue placeholder="Choose a service" />
                     </SelectTrigger>
                     <SelectContent>
                         <SelectGroup>
-                            <SelectLabel>État civil</SelectLabel>
-                            <SelectItem value="id-card">Carte d'identité</SelectItem>
-                            <SelectItem value="passport">Passeport</SelectItem>
+                            <SelectLabel>Civil registry</SelectLabel>
+                            <SelectItem value="id-card">ID card</SelectItem>
+                            <SelectItem value="passport">Passport</SelectItem>
                         </SelectGroup>
                         <SelectSeparator />
                         <SelectGroup>
-                            <SelectLabel>Autres services</SelectLabel>
-                            <SelectItem value="urbanism">Urbanisme</SelectItem>
+                            <SelectLabel>Other services</SelectLabel>
+                            <SelectItem value="urbanism">Urban planning</SelectItem>
                             <SelectItem value="school" disabled>
-                                Inscriptions scolaires
+                                School enrollment
                             </SelectItem>
                         </SelectGroup>
                     </SelectContent>
                 </Select>
             </div>
             <div className="grid gap-2">
-                <Label>Variante « toolbar », petite</Label>
+                <Label>"toolbar" variant, small</Label>
                 <Select defaultValue="week">
                     <SelectTrigger variant="toolbar" size="sm">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="day">Jour</SelectItem>
-                        <SelectItem value="week">Semaine</SelectItem>
-                        <SelectItem value="month">Mois</SelectItem>
+                        <SelectItem value="day">Day</SelectItem>
+                        <SelectItem value="week">Week</SelectItem>
+                        <SelectItem value="month">Month</SelectItem>
                     </SelectContent>
                 </Select>
             </div>

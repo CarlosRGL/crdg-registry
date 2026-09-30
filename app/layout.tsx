@@ -5,16 +5,16 @@ import { Providers } from '@/components/docs/providers';
 import './globals.css';
 
 export const metadata: Metadata = {
-    title: { default: '@crdg — registre shadcn', template: '%s · @crdg' },
-    description: 'Thème loniar et composants Base UI pour shadcn, prêts à installer.',
+    title: { default: '@crdg — shadcn registry', template: '%s · @crdg' },
+    description: 'The loniar theme and Base UI components for shadcn, ready to install.',
 };
 
-// Applique le thème avant l'hydratation (même clé que @crdg/use-appearance) : pas de flash.
+// Applies the theme before hydration (same key as @crdg/use-appearance): no flash.
 const THEME_SCRIPT = `try{var a=localStorage.getItem('appearance')||'system';var d=a==='dark'||(a==='system'&&matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.classList.toggle('dark',d);document.documentElement.style.colorScheme=d?'dark':'light'}catch(e){}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="fr" suppressHydrationWarning>
+        <html lang="en" suppressHydrationWarning>
             <head>
                 <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
             </head>

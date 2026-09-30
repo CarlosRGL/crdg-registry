@@ -17,19 +17,19 @@ import { Label } from '@/components/ui/label';
 export default function DialogExample() {
     return (
         <Dialog>
-            <DialogTrigger render={<Button variant="outline" />}>Renommer le guichet</DialogTrigger>
+            <DialogTrigger render={<Button variant="outline" />}>Rename counter</DialogTrigger>
             <DialogContent>
                 <DialogHeader>
-                    <DialogTitle>Renommer le guichet</DialogTitle>
-                    <DialogDescription>Le nouveau nom s'affiche aussitôt sur le site public.</DialogDescription>
+                    <DialogTitle>Rename counter</DialogTitle>
+                    <DialogDescription>The new name appears on the public site immediately.</DialogDescription>
                 </DialogHeader>
                 <div className="grid gap-2">
-                    <Label htmlFor="counter-name">Nom</Label>
-                    <Input id="counter-name" defaultValue="Guichet principal" />
+                    <Label htmlFor="counter-name">Name</Label>
+                    <Input id="counter-name" defaultValue="Main counter" />
                 </div>
                 <DialogFooter>
-                    <DialogClose render={<Button variant="secondary" />}>Annuler</DialogClose>
-                    <DialogClose render={<Button />}>Enregistrer</DialogClose>
+                    <DialogClose render={<Button variant="secondary" />}>Cancel</DialogClose>
+                    <DialogClose render={<Button />}>Save</DialogClose>
                 </DialogFooter>
             </DialogContent>
         </Dialog>

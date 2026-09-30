@@ -6,7 +6,7 @@ import { categories, titleOf } from '@/lib/registry';
 import { cn } from '@/lib/utils';
 
 const GUIDES = [
-    { href: '/', label: 'Thème loniar' },
+    { href: '/', label: 'Loniar theme' },
     { href: '/installation', label: 'Installation' },
 ];
 
@@ -32,7 +32,7 @@ export function SiteNav({ onNavigate }: { onNavigate?: () => void }) {
     return (
         <nav aria-label="Documentation" className="flex flex-col gap-5">
             <div className="flex flex-col gap-0.5">
-                <p className="px-2 pb-1 text-xs font-medium text-muted-foreground">Démarrer</p>
+                <p className="px-2 pb-1 text-xs font-medium text-muted-foreground">Getting started</p>
                 {GUIDES.map((guide) => (
                     <NavLink key={guide.href} href={guide.href} onNavigate={onNavigate}>
                         {guide.label}

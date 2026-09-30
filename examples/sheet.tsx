@@ -13,10 +13,10 @@ import {
 } from '@/components/ui/sheet';
 
 const SIDES = [
-    ['right', 'Droite'],
-    ['left', 'Gauche'],
-    ['top', 'Haut'],
-    ['bottom', 'Bas'],
+    ['right', 'Right'],
+    ['left', 'Left'],
+    ['top', 'Top'],
+    ['bottom', 'Bottom'],
 ] as const;
 
 export default function SheetExample() {
@@ -27,11 +27,11 @@ export default function SheetExample() {
                     <SheetTrigger render={<Button variant="outline" />}>{label}</SheetTrigger>
                     <SheetContent side={side}>
                         <SheetHeader>
-                            <SheetTitle>Détail du rendez-vous</SheetTitle>
-                            <SheetDescription>Mardi 6 octobre, 9 h 30 — Guichet principal.</SheetDescription>
+                            <SheetTitle>Appointment details</SheetTitle>
+                            <SheetDescription>Mardi 6 octobre, 9 h 30 — Main counter.</SheetDescription>
                         </SheetHeader>
                         <SheetFooter>
-                            <SheetClose render={<Button variant="secondary" />}>Fermer</SheetClose>
+                            <SheetClose render={<Button variant="secondary" />}>Close</SheetClose>
                         </SheetFooter>
                     </SheetContent>
                 </Sheet>

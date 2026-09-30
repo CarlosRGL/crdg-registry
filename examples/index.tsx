@@ -38,7 +38,7 @@ import tooltip from './tooltip';
 import useAppearance from './use-appearance';
 import useMobile from './use-mobile';
 
-/** Exemple par nom d'item du registre. Le fichier source de chacun est examples/{name}.tsx. */
+/** Example by registry item name. The source file of each is examples/{name}.tsx. */
 const EXAMPLES: Record<string, ComponentType> = {
     alert,
     avatar,

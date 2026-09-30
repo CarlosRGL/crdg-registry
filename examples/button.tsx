@@ -19,21 +19,21 @@ export default function ButtonExample() {
                 ))}
             </div>
             <div className="flex flex-wrap items-center justify-center gap-2">
-                <Button size="xs">Très petit</Button>
-                <Button size="sm">Petit</Button>
+                <Button size="xs">Extra small</Button>
+                <Button size="sm">Small</Button>
                 <Button>Normal</Button>
-                <Button size="lg">Grand</Button>
-                <Button size="icon" variant="outline" aria-label="Ajouter">
+                <Button size="lg">Large</Button>
+                <Button size="icon" variant="outline" aria-label="Add">
                     <PlusIcon />
                 </Button>
-                <Button size="icon-sm" variant="destructive" aria-label="Supprimer">
+                <Button size="icon-sm" variant="destructive" aria-label="Delete">
                     <Trash2Icon />
                 </Button>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-2">
                 <Button variant="outline">
                     <PlusIcon data-icon="inline-start" />
-                    Nouveau rendez-vous
+                    New appointment
                 </Button>
                 <Button
                     loading={loading}
@@ -42,11 +42,11 @@ export default function ButtonExample() {
                         setTimeout(() => setLoading(false), 1500);
                     }}
                 >
-                    Enregistrer
+                    Save
                 </Button>
-                <Button disabled>Désactivé</Button>
+                <Button disabled>Disabled</Button>
                 <Button variant="link" nativeButton={false} render={<a href="#" />}>
-                    Lien
+                    Link
                     <ArrowRightIcon data-icon="inline-end" />
                 </Button>
             </div>

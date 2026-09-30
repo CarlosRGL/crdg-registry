@@ -5,10 +5,10 @@ import ErrorState, { type ErrorKind } from '@/components/states/error-state';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 
 const KINDS: [ErrorKind, string][] = [
-    ['failed', 'Échec'],
-    ['offline', 'Hors ligne'],
-    ['forbidden', 'Interdit'],
-    ['not-found', 'Introuvable'],
+    ['failed', 'Failed'],
+    ['offline', 'Offline'],
+    ['forbidden', 'Forbidden'],
+    ['not-found', 'Not found'],
 ];
 
 export default function ErrorStateExample() {

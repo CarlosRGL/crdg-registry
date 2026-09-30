@@ -15,7 +15,7 @@ export default function BadgeExample() {
             ))}
             <Badge variant="success">
                 <CheckIcon data-icon="inline-start" />
-                Confirmé
+                Confirmed
             </Badge>
         </div>
     );

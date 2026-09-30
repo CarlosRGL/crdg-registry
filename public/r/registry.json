@@ -8,7 +8,7 @@
       "name": "loniar-theme",
       "type": "registry:theme",
       "title": "Loniar",
-      "description": "Neutres chauds, accent indigo, échelle de texte dense (13,5 px), ombres chaudes. Clair et sombre.",
+      "description": "Warm neutrals, indigo accent, dense type scale (13.5px), warm shadows. Light and dark.",
       "author": "crdg",
       "registryDependencies": [
         "font-geist"
@@ -275,7 +275,7 @@
     {
       "name": "loniar",
       "type": "registry:item",
-      "title": "Loniar (thème + composants)",
+      "title": "Loniar (theme + components)",
       "registryDependencies": [
         "@crdg/loniar-theme",
         "@crdg/alert",

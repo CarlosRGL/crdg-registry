@@ -9,16 +9,16 @@ export default function AlertExample() {
         <div className="grid w-full max-w-lg gap-3">
             <Alert>
                 <InfoIcon />
-                <AlertTitle>Créneaux publiés</AlertTitle>
-                <AlertDescription>Les usagers peuvent réserver dès maintenant.</AlertDescription>
+                <AlertTitle>Slots published</AlertTitle>
+                <AlertDescription>Residents can book right away.</AlertDescription>
             </Alert>
             <Alert variant="destructive">
                 <CircleAlertIcon />
                 <AlertTitle>Synchronisation interrompue</AlertTitle>
-                <AlertDescription>Le service distant ne répond pas.</AlertDescription>
+                <AlertDescription>The remote service is not responding.</AlertDescription>
                 <AlertAction>
                     <Button size="xs" variant="outline">
-                        Réessayer
+                        Try again
                     </Button>
                 </AlertAction>
             </Alert>

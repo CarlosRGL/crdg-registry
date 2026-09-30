@@ -10,18 +10,18 @@ export default function ToggleGroupExample() {
     return (
         <div className="flex flex-col items-center gap-6">
             <ToggleGroup variant="segmented" value={view} onValueChange={(next) => next.length && setView(next)}>
-                <ToggleGroupItem value="day">Jour</ToggleGroupItem>
-                <ToggleGroupItem value="week">Semaine</ToggleGroupItem>
-                <ToggleGroupItem value="month">Mois</ToggleGroupItem>
+                <ToggleGroupItem value="day">Day</ToggleGroupItem>
+                <ToggleGroupItem value="week">Week</ToggleGroupItem>
+                <ToggleGroupItem value="month">Month</ToggleGroupItem>
             </ToggleGroup>
             <ToggleGroup variant="outline" defaultValue={['left']}>
-                <ToggleGroupItem value="left" aria-label="Aligner à gauche">
+                <ToggleGroupItem value="left" aria-label="Align left">
                     <AlignLeftIcon />
                 </ToggleGroupItem>
                 <ToggleGroupItem value="center" aria-label="Centrer">
                     <AlignCenterIcon />
                 </ToggleGroupItem>
-                <ToggleGroupItem value="right" aria-label="Aligner à droite">
+                <ToggleGroupItem value="right" aria-label="Align right">
                     <AlignRightIcon />
                 </ToggleGroupItem>
             </ToggleGroup>

@@ -13,7 +13,7 @@ export function CopyButton({ value, className }: { value: string; className?: st
             variant="ghost"
             size="icon-sm"
             className={cn('text-muted-foreground', className)}
-            aria-label={copied ? 'Copié' : 'Copier'}
+            aria-label={copied ? 'Copied' : 'Copy'}
             onClick={async () => {
                 await navigator.clipboard.writeText(value);
                 setCopied(true);

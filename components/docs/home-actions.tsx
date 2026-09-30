@@ -7,10 +7,10 @@ export function HomeActions() {
     return (
         <div className="flex flex-wrap gap-2">
             <Button nativeButton={false} render={<Link href="/installation" />}>
-                Installer
+                Install
             </Button>
             <Button variant="outline" nativeButton={false} render={<Link href="/docs/button" />}>
-                Parcourir les composants
+                Browse components
             </Button>
         </div>
     );

@@ -6,7 +6,7 @@ function read(file: string): string | null {
     return existsSync(file) ? readFileSync(file, 'utf8') : null;
 }
 
-/** Fichier distribué, chemin tel que déclaré dans registry.json (`registry/crdg/...`). */
+/** Distributed file, path as declared in registry.json (`registry/crdg/...`). */
 export function readSource(registryPath: string): string | null {
     return read(path.join(process.cwd(), 'registry', registryPath.replace(/^registry\//, '')));
 }

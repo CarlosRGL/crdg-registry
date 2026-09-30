@@ -5,15 +5,15 @@ import { Separator } from '@/components/ui/separator';
 export default function SeparatorExample() {
     return (
         <div className="w-full max-w-sm">
-            <p className="font-medium">Mairie de Loniar</p>
-            <p className="text-muted-foreground">Service population</p>
+            <p className="font-medium">Loniar City Hall</p>
+            <p className="text-muted-foreground">Residents' services</p>
             <Separator className="my-3" />
             <div className="flex h-5 items-center gap-3">
-                <span>Lundi</span>
+                <span>Monday</span>
                 <Separator orientation="vertical" />
-                <span>Mercredi</span>
+                <span>Wednesday</span>
                 <Separator orientation="vertical" />
-                <span>Vendredi</span>
+                <span>Friday</span>
             </div>
         </div>
     );

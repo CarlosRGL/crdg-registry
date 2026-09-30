@@ -21,7 +21,7 @@ export default function InputOTPExample() {
                     <InputOTPSlot index={5} />
                 </InputOTPGroup>
             </InputOTP>
-            <p className="text-muted-foreground">{value ? `Saisi : ${value}` : 'Saisissez le code reçu par SMS.'}</p>
+            <p className="text-muted-foreground">{value ? `Entered: ${value}` : 'Enter the code received by SMS.'}</p>
         </div>
     );
 }

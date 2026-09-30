@@ -6,8 +6,8 @@ import { Label } from '@/components/ui/label';
 export default function LabelExample() {
     return (
         <div className="grid w-full max-w-sm gap-2">
-            <Label htmlFor="last-name">Nom de naissance</Label>
-            <Input id="last-name" placeholder="Dupont" />
+            <Label htmlFor="last-name">Last name</Label>
+            <Input id="last-name" placeholder="Smith" />
         </div>
     );
 }

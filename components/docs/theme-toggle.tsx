@@ -6,8 +6,8 @@ import { Button } from '@/components/ui/button';
 import { initializeTheme, useAppearance } from '@/hooks/use-appearance';
 
 /**
- * Bascule clair/sombre, branchée sur @crdg/use-appearance comme dans un projet réel. L'icône
- * suit la classe .dark en CSS : le serveur ne connaît pas le mode, le rendu reste identique.
+ * Light/dark toggle, wired to @crdg/use-appearance as in a real project. The icon follows the
+ * .dark class in CSS: the server does not know the mode, so the markup stays identical.
  */
 export function ThemeToggle() {
     const { updateAppearance } = useAppearance();
@@ -20,7 +20,7 @@ export function ThemeToggle() {
         <Button
             variant="ghost"
             size="icon-sm"
-            aria-label="Basculer le thème clair/sombre"
+            aria-label="Toggle light/dark theme"
             onClick={() => updateAppearance(document.documentElement.classList.contains('dark') ? 'light' : 'dark')}
         >
             <SunIcon className="hidden dark:block" />

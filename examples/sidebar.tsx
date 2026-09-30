@@ -18,22 +18,22 @@ import {
 } from '@/components/ui/sidebar';
 
 const ENTRIES = [
-    { label: 'Accueil', icon: HomeIcon, active: true },
-    { label: 'Rendez-vous', icon: CalendarIcon, badge: '12' },
-    { label: 'Équipe', icon: UsersIcon },
-    { label: 'Paramètres', icon: SettingsIcon },
+    { label: 'Home', icon: HomeIcon, active: true },
+    { label: 'Appointments', icon: CalendarIcon, badge: '12' },
+    { label: 'Team', icon: UsersIcon },
+    { label: 'Settings', icon: SettingsIcon },
 ];
 
-// La barre latérale est confinée dans l'aperçu : hauteur fixe, position relative.
+// The sidebar is contained within the preview: fixed height, relative position.
 export default function SidebarExample() {
     return (
         <div className="h-96 w-full overflow-hidden rounded-lg border [&_[data-slot=sidebar-container]]:absolute">
             <SidebarProvider className="relative min-h-0 h-full">
                 <Sidebar collapsible="icon">
-                    <SidebarHeader className="px-3 py-2 font-semibold">Mairie</SidebarHeader>
+                    <SidebarHeader className="px-3 py-2 font-semibold">City Hall</SidebarHeader>
                     <SidebarContent>
                         <SidebarGroup>
-                            <SidebarGroupLabel>Guichets</SidebarGroupLabel>
+                            <SidebarGroupLabel>Counters</SidebarGroupLabel>
                             <SidebarGroupContent>
                                 <SidebarMenu>
                                     {ENTRIES.map((entry) => (
@@ -52,7 +52,7 @@ export default function SidebarExample() {
                 </Sidebar>
                 <SidebarInset className="p-4">
                     <SidebarTrigger />
-                    <p className="mt-3 text-muted-foreground">Le déclencheur replie la barre en icônes.</p>
+                    <p className="mt-3 text-muted-foreground">The trigger collapses the bar to icons.</p>
                 </SidebarInset>
             </SidebarProvider>
         </div>

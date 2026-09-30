@@ -1,4 +1,4 @@
-"""Copie les composants de vernalis-rdv dans registry/ et les déclare dans registry.json."""
+"""Copies the vernalis-rdv components into registry/ and declares them in registry.json."""
 import json, re, sys, shutil
 from pathlib import Path
 
@@ -8,7 +8,7 @@ shutil.rmtree(OUT, ignore_errors=True)
 NPM = ['@base-ui/react', 'class-variance-authority', 'lucide-react', 'sonner', 'input-otp']
 
 def portable(code):
-    # Le projet importe `cn` du paquet npm « cn » ; le registre s'aligne sur l'utilitaire shadcn.
+    # The project imports `cn` from the "cn" npm package; the registry uses the shadcn utility instead.
     return re.sub(r'''from ["']cn["']''', 'from "@/lib/utils"', code)
 
 def item(name, kind, rel, target, code):
@@ -101,7 +101,7 @@ items.append(it)
 
 registry = json.load(open('registry.json'))
 theme = next(i for i in registry['items'] if i['name'] == 'loniar-theme')
-bundle = {'name': 'loniar', 'type': 'registry:item', 'title': 'Loniar (thème + composants)',
+bundle = {'name': 'loniar', 'type': 'registry:item', 'title': 'Loniar (theme + components)',
           'registryDependencies': ['@crdg/loniar-theme'] + ['@crdg/' + i['name'] for i in items if i['name'] != 'use-inertia-toasts']}
 registry['items'] = [theme, bundle] + items
 json.dump(registry, open('registry.json', 'w'), ensure_ascii=False, indent=2)
