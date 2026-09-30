@@ -1,7 +1,6 @@
-import * as React from "react"
+import { Button as ButtonPrimitive } from "@base-ui/react/button"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
-import { Slot } from "radix-ui"
 
 import { Spinner } from "@/components/ui/spinner"
 
@@ -49,30 +48,30 @@ function Button({
   className,
   variant = "default",
   size = "default",
-  asChild = false,
   loading = false,
   disabled,
   children,
+  render,
   ...props
-}: React.ComponentProps<"button"> &
+}: ButtonPrimitive.Props &
   VariantProps<typeof buttonVariants> & {
-    asChild?: boolean
     /** Plan 049 : garde le libellé, ajoute un indicateur et bloque le bouton. */
     loading?: boolean
   }) {
-  const Comp = asChild ? Slot.Root : "button"
+  // Rendu sous un autre élément (`render={<Link />}`), le bouton n'en est plus un : pas
+  // d'indicateur injecté dans l'enfant, et `disabled` reste celui que l'appelant a posé.
+  const rendered = render !== undefined
 
   return (
-    <Comp
+    <ButtonPrimitive
       data-slot="button"
-      data-variant={variant}
-      data-size={size}
       className={cn(buttonVariants({ variant, size, className }))}
-      disabled={asChild ? disabled : disabled || loading}
+      render={render}
+      disabled={rendered ? disabled : disabled || loading}
       aria-busy={loading || undefined}
       {...props}
     >
-      {loading && !asChild ? (
+      {loading && !rendered ? (
         <>
           <Spinner aria-hidden="true" role={undefined} aria-label={undefined} />
           {children}
@@ -80,7 +79,7 @@ function Button({
       ) : (
         children
       )}
-    </Comp>
+    </ButtonPrimitive>
   )
 }
 

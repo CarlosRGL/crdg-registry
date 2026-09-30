@@ -1,6 +1,6 @@
 # @crdg — registre shadcn
 
-Prérequis : Tailwind v4, projet shadcn en style **Radix** (`radix-*` dans `components.json`, pas `base-*`).
+Prérequis : Tailwind v4, projet shadcn en style **Base UI** (`base-*` dans `components.json`, le défaut de `shadcn init`). Les composants dépendent de `@base-ui/react`.
 
 ```json
 // components.json

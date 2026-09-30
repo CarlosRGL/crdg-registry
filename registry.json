@@ -336,7 +336,7 @@
       "name": "avatar",
       "type": "registry:ui",
       "dependencies": [
-        "radix-ui"
+        "@base-ui/react"
       ],
       "registryDependencies": [
         "utils"
@@ -352,8 +352,8 @@
       "name": "badge",
       "type": "registry:ui",
       "dependencies": [
-        "class-variance-authority",
-        "radix-ui"
+        "@base-ui/react",
+        "class-variance-authority"
       ],
       "registryDependencies": [
         "utils"
@@ -369,8 +369,8 @@
       "name": "breadcrumb",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-react",
-        "radix-ui"
+        "@base-ui/react",
+        "lucide-react"
       ],
       "registryDependencies": [
         "utils"
@@ -386,8 +386,8 @@
       "name": "button",
       "type": "registry:ui",
       "dependencies": [
-        "class-variance-authority",
-        "radix-ui"
+        "@base-ui/react",
+        "class-variance-authority"
       ],
       "registryDependencies": [
         "@crdg/spinner",
@@ -418,8 +418,8 @@
       "name": "checkbox",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-react",
-        "radix-ui"
+        "@base-ui/react",
+        "lucide-react"
       ],
       "registryDependencies": [
         "utils"
@@ -435,7 +435,7 @@
       "name": "collapsible",
       "type": "registry:ui",
       "dependencies": [
-        "radix-ui"
+        "@base-ui/react"
       ],
       "registryDependencies": [],
       "files": [
@@ -449,8 +449,8 @@
       "name": "dialog",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-react",
-        "radix-ui"
+        "@base-ui/react",
+        "lucide-react"
       ],
       "registryDependencies": [
         "@crdg/button",
@@ -467,8 +467,8 @@
       "name": "dropdown-menu",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-react",
-        "radix-ui"
+        "@base-ui/react",
+        "lucide-react"
       ],
       "registryDependencies": [
         "utils"
@@ -514,7 +514,9 @@
     {
       "name": "input",
       "type": "registry:ui",
-      "dependencies": [],
+      "dependencies": [
+        "@base-ui/react"
+      ],
       "registryDependencies": [
         "utils"
       ],
@@ -528,9 +530,7 @@
     {
       "name": "label",
       "type": "registry:ui",
-      "dependencies": [
-        "radix-ui"
-      ],
+      "dependencies": [],
       "registryDependencies": [
         "utils"
       ],
@@ -545,9 +545,9 @@
       "name": "navigation-menu",
       "type": "registry:ui",
       "dependencies": [
+        "@base-ui/react",
         "class-variance-authority",
-        "lucide-react",
-        "radix-ui"
+        "lucide-react"
       ],
       "registryDependencies": [
         "utils"
@@ -592,8 +592,8 @@
       "name": "select",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-react",
-        "radix-ui"
+        "@base-ui/react",
+        "lucide-react"
       ],
       "registryDependencies": [
         "utils"
@@ -609,7 +609,7 @@
       "name": "separator",
       "type": "registry:ui",
       "dependencies": [
-        "radix-ui"
+        "@base-ui/react"
       ],
       "registryDependencies": [
         "utils"
@@ -625,8 +625,8 @@
       "name": "sheet",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-react",
-        "radix-ui"
+        "@base-ui/react",
+        "lucide-react"
       ],
       "registryDependencies": [
         "@crdg/button",
@@ -643,9 +643,9 @@
       "name": "sidebar",
       "type": "registry:ui",
       "dependencies": [
+        "@base-ui/react",
         "class-variance-authority",
-        "lucide-react",
-        "radix-ui"
+        "lucide-react"
       ],
       "registryDependencies": [
         "@crdg/button",
@@ -715,7 +715,7 @@
       "name": "switch",
       "type": "registry:ui",
       "dependencies": [
-        "radix-ui"
+        "@base-ui/react"
       ],
       "registryDependencies": [
         "utils"
@@ -745,8 +745,8 @@
       "name": "toggle-group",
       "type": "registry:ui",
       "dependencies": [
-        "class-variance-authority",
-        "radix-ui"
+        "@base-ui/react",
+        "class-variance-authority"
       ],
       "registryDependencies": [
         "@crdg/toggle",
@@ -763,8 +763,8 @@
       "name": "toggle",
       "type": "registry:ui",
       "dependencies": [
-        "class-variance-authority",
-        "radix-ui"
+        "@base-ui/react",
+        "class-variance-authority"
       ],
       "registryDependencies": [
         "utils"
@@ -780,7 +780,7 @@
       "name": "tooltip",
       "type": "registry:ui",
       "dependencies": [
-        "radix-ui"
+        "@base-ui/react"
       ],
       "registryDependencies": [
         "utils"

@@ -1,4 +1,5 @@
-import type { ReactNode } from 'react';
+import { useRef } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import { Button } from '@/components/ui/button';
 import {
     Dialog,
@@ -38,32 +39,28 @@ export default function ConfirmDialog({
     processing?: boolean;
     /** `false` pour une confirmation coûteuse mais non destructive (bouton principal). */
     destructive?: boolean;
-    /** Déclencheur optionnel, rendu en `asChild` : un seul élément. */
-    trigger?: ReactNode;
+    /** Déclencheur optionnel, passé en `render` du déclencheur : un seul élément. */
+    trigger?: ReactElement;
     /** Contenu complémentaire entre la description et les boutons (motif, case à cocher). */
     children?: ReactNode;
 }) {
+    const cancelRef = useRef<HTMLButtonElement>(null);
+
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
-            <DialogContent
-                onOpenAutoFocus={(event) => {
-                    event.preventDefault();
-                    (event.currentTarget as HTMLElement)
-                        .querySelector<HTMLElement>('[data-confirm-cancel]')
-                        ?.focus();
-                }}
-            >
+            {trigger && <DialogTrigger render={trigger} />}
+            <DialogContent initialFocus={cancelRef}>
                 <DialogHeader>
                     <DialogTitle>{title}</DialogTitle>
                     <DialogDescription>{description}</DialogDescription>
                 </DialogHeader>
                 {children}
                 <DialogFooter>
-                    <DialogClose asChild>
-                        <Button variant="secondary" data-confirm-cancel>
-                            Annuler
-                        </Button>
+                    <DialogClose
+                        ref={cancelRef}
+                        render={<Button variant="secondary" />}
+                    >
+                        Annuler
                     </DialogClose>
                     <Button
                         variant={destructive ? 'destructive' : 'default'}

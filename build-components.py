@@ -5,7 +5,7 @@ from pathlib import Path
 SRC = Path(sys.argv[1])  # resources/js de vernalis-rdv
 OUT = Path('registry/crdg')
 shutil.rmtree(OUT, ignore_errors=True)
-NPM = ['radix-ui', 'class-variance-authority', 'lucide-react', 'sonner', 'input-otp']
+NPM = ['@base-ui/react', 'class-variance-authority', 'lucide-react', 'sonner', 'input-otp']
 
 def portable(code):
     # Le projet importe `cn` du paquet npm « cn » ; le registre s'aligne sur l'utilitaire shadcn.
@@ -15,7 +15,7 @@ def item(name, kind, rel, target, code):
     path = OUT / rel
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(code)
-    deps = sorted({p for p in NPM if re.search(r'''from ["']%s["']''' % re.escape(p), code)})
+    deps = sorted({p for p in NPM if re.search(r'''from ["']%s(/[\w-]+)*["']''' % re.escape(p), code)})
     reg = {'utils'} if '@/lib/utils' in code else set()
     reg |= {'@crdg/' + m for m in re.findall(r'''from ["']@/components/ui/([\w-]+)["']''', code)}
     reg |= {'@crdg/' + m for m in re.findall(r'''from ["']@/hooks/([\w-]+)["']''', code)}
