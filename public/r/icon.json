@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "icon",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/crdg/ui/icon.tsx",
+      "content": "import type { LucideIcon } from 'lucide-react';\n\ninterface IconProps {\n    iconNode?: LucideIcon | null;\n    className?: string;\n}\n\nexport function Icon({ iconNode: IconComponent, className }: IconProps) {\n    if (!IconComponent) {\n        return null;\n    }\n\n    return <IconComponent className={className} />;\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

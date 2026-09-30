@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "offline-banner",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/crdg/states/offline-banner.tsx",
+      "content": "import { WifiOff } from 'lucide-react';\nimport { useEffect, useState } from 'react';\n\n/** Bandeau hors ligne : suit `navigator.onLine`. */\nexport default function OfflineBanner() {\n    const [offline, setOffline] = useState(\n        () => typeof navigator !== 'undefined' && !navigator.onLine,\n    );\n\n    useEffect(() => {\n        const goOffline = () => setOffline(true);\n        const goOnline = () => setOffline(false);\n        window.addEventListener('offline', goOffline);\n        window.addEventListener('online', goOnline);\n\n        return () => {\n            window.removeEventListener('offline', goOffline);\n            window.removeEventListener('online', goOnline);\n        };\n    }, []);\n\n    if (!offline) {\n        return null;\n    }\n\n    return (\n        <div\n            role=\"status\"\n            className=\"bg-warning-soft text-warning border-b px-4 py-2 text-sm font-medium\"\n        >\n            <span className=\"flex items-center gap-2\">\n                <WifiOff className=\"size-4 shrink-0\" aria-hidden=\"true\" />\n                Vous êtes hors ligne. Les modifications ne pourront pas être\n                enregistrées avant le retour du réseau.\n            </span>\n        </div>\n    );\n}\n",
+      "type": "registry:component",
+      "target": "components/states/offline-banner.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

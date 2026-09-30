@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty-state",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "registry/crdg/states/empty-state.tsx",
+      "content": "import type { LucideIcon } from 'lucide-react';\nimport type { ReactNode } from 'react';\nimport { cn } from '@/lib/utils';\n\n/**\n * État vide (plan 049, d'après gr8r « System states ») : icône dans un carré discret, titre,\n * une phrase qui dit quoi faire, une action. `tone=\"destructive\"` sert aux états d'erreur\n * d'`ErrorState`, qui s'appuie sur ce composant.\n */\nexport default function EmptyState({\n    icon: Icon,\n    title,\n    description,\n    actions,\n    tone = 'default',\n    className,\n}: {\n    icon: LucideIcon;\n    title: string;\n    description?: ReactNode;\n    actions?: ReactNode;\n    tone?: 'default' | 'destructive';\n    className?: string;\n}) {\n    return (\n        <div\n            className={cn(\n                'flex flex-col items-center justify-center gap-4 px-6 py-14 text-center',\n                className,\n            )}\n        >\n            <div\n                className={cn(\n                    'flex size-10 items-center justify-center rounded-lg',\n                    tone === 'destructive'\n                        ? 'bg-destructive-soft text-destructive'\n                        : 'bg-surface-2 text-muted-foreground ring-border ring-1',\n                )}\n            >\n                <Icon className=\"size-5\" aria-hidden=\"true\" />\n            </div>\n            <div className=\"space-y-1\">\n                <h3 className=\"text-base font-semibold\">{title}</h3>\n                {description && (\n                    <p className=\"text-muted-foreground mx-auto max-w-md text-sm text-pretty\">\n                        {description}\n                    </p>\n                )}\n            </div>\n            {actions && (\n                <div className=\"flex flex-wrap justify-center gap-2\">\n                    {actions}\n                </div>\n            )}\n        </div>\n    );\n}\n",
+      "type": "registry:component",
+      "target": "components/states/empty-state.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-inertia-toasts",
+  "dependencies": [
+    "@inertiajs/react",
+    "sonner"
+  ],
+  "registryDependencies": [
+    "@crdg/sonner"
+  ],
+  "files": [
+    {
+      "path": "registry/crdg/hooks/use-inertia-toasts.ts",
+      "content": "import { router } from '@inertiajs/react';\nimport { useEffect } from 'react';\nimport { toast } from 'sonner';\n\ntype FlashToast = {\n    type: 'success' | 'info' | 'warning' | 'error';\n    message: string;\n};\n\n/**\n * À appeler une fois sous le <Toaster /> : transforme le flash `toast` de Laravel\n * (`Inertia::flash('toast', [...])`) en toast, et signale les requêtes qui n'aboutissent pas.\n */\nexport function useInertiaToasts(): void {\n    useEffect(() => {\n        let lastMethod = 'get';\n        const stopFlash = router.on('flash', (event) => {\n            const data = (event as CustomEvent).detail?.flash?.toast as FlashToast | undefined;\n\n            if (data) {\n                toast[data.type](data.message);\n            }\n        });\n        const stopTracking = router.on('start', (event) => {\n            lastMethod = event.detail.visit.method;\n        });\n        const stopListening = router.on('networkError', (event) => {\n            event.preventDefault();\n            toast.error(\n                lastMethod === 'get'\n                    ? \"La page n'a pas pu être chargée.\"\n                    : \"Vos modifications n'ont pas pu être enregistrées.\",\n                { description: 'Le serveur ne répond pas. Vérifiez votre connexion, puis réessayez.' },\n            );\n        });\n\n        return () => {\n            stopFlash();\n            stopTracking();\n            stopListening();\n        };\n    }, []);\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

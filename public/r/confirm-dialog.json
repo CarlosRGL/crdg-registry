@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "confirm-dialog",
+  "dependencies": [],
+  "registryDependencies": [
+    "@crdg/button",
+    "@crdg/dialog"
+  ],
+  "files": [
+    {
+      "path": "registry/crdg/states/confirm-dialog.tsx",
+      "content": "import type { ReactNode } from 'react';\nimport { Button } from '@/components/ui/button';\nimport {\n    Dialog,\n    DialogClose,\n    DialogContent,\n    DialogDescription,\n    DialogFooter,\n    DialogHeader,\n    DialogTitle,\n    DialogTrigger,\n} from '@/components/ui/dialog';\n\n/**\n * Confirmation d'une action destructive ou coûteuse à défaire (plan 049) : titre en question, conséquence en une\n * phrase, « Annuler » reçoit le focus à l'ouverture pour qu'une frappe sur Entrée ne détruise\n * rien. `onConfirm` lance la requête (`router.delete`…) ; le dialogue se ferme quand la page\n * appelante repasse `open` à `false`, typiquement dans `onSuccess`.\n */\nexport default function ConfirmDialog({\n    open,\n    onOpenChange,\n    title,\n    description,\n    confirmLabel,\n    onConfirm,\n    processing = false,\n    destructive = true,\n    trigger,\n    children,\n}: {\n    open: boolean;\n    onOpenChange: (open: boolean) => void;\n    title: string;\n    description: ReactNode;\n    confirmLabel: string;\n    onConfirm: () => void;\n    processing?: boolean;\n    /** `false` pour une confirmation coûteuse mais non destructive (bouton principal). */\n    destructive?: boolean;\n    /** Déclencheur optionnel, rendu en `asChild` : un seul élément. */\n    trigger?: ReactNode;\n    /** Contenu complémentaire entre la description et les boutons (motif, case à cocher). */\n    children?: ReactNode;\n}) {\n    return (\n        <Dialog open={open} onOpenChange={onOpenChange}>\n            {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}\n            <DialogContent\n                onOpenAutoFocus={(event) => {\n                    event.preventDefault();\n                    (event.currentTarget as HTMLElement)\n                        .querySelector<HTMLElement>('[data-confirm-cancel]')\n                        ?.focus();\n                }}\n            >\n                <DialogHeader>\n                    <DialogTitle>{title}</DialogTitle>\n                    <DialogDescription>{description}</DialogDescription>\n                </DialogHeader>\n                {children}\n                <DialogFooter>\n                    <DialogClose asChild>\n                        <Button variant=\"secondary\" data-confirm-cancel>\n                            Annuler\n                        </Button>\n                    </DialogClose>\n                    <Button\n                        variant={destructive ? 'destructive' : 'default'}\n                        loading={processing}\n                        onClick={onConfirm}\n                    >\n                        {confirmLabel}\n                    </Button>\n                </DialogFooter>\n            </DialogContent>\n        </Dialog>\n    );\n}\n",
+      "type": "registry:component",
+      "target": "components/states/confirm-dialog.tsx"
+    }
+  ],
+  "type": "registry:component"
+}
