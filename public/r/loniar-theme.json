@@ -164,7 +164,7 @@
       "surface-3": "#eceef6",
       "sunken": "#f5f6fa",
       "divider": "#eceef5",
-      "overlay": "rgb(24 22 19 / 0.28)",
+      "overlay": "rgb(18 20 34 / 0.28)",
       "primary-soft": "color-mix(in srgb, var(--primary) 10%, transparent)",
       "primary-line": "color-mix(in srgb, var(--primary) 38%, transparent)",
       "success-soft": "color-mix(in srgb, var(--success) 11%, transparent)",
