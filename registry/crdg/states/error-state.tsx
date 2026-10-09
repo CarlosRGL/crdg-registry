@@ -32,7 +32,7 @@ const COPY: Record<
         icon: Lock,
         title: "Vous n'avez pas accès",
         description:
-            "Vos droits ne permettent pas d'afficher cette page. Rapprochez-vous de l'administrateur de votre commune.",
+            "Vos droits ne permettent pas d'afficher cette page. Rapprochez-vous de votre administrateur.",
     },
     'not-found': {
         icon: FileQuestion,
@@ -52,6 +52,7 @@ export default function ErrorState({
     description,
     onRetry,
     actions,
+    headingLevel,
     className,
 }: {
     kind: ErrorKind;
@@ -59,6 +60,7 @@ export default function ErrorState({
     description?: ReactNode;
     onRetry?: () => void;
     actions?: ReactNode;
+    headingLevel?: 2 | 3 | 4;
     className?: string;
 }) {
     const copy = COPY[kind];
@@ -69,6 +71,7 @@ export default function ErrorState({
             tone={kind === 'not-found' ? 'default' : 'destructive'}
             title={title ?? copy.title}
             description={description ?? copy.description}
+            headingLevel={headingLevel}
             className={className}
             actions={
                 actions ??

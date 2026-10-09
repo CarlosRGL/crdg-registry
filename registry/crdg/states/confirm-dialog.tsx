@@ -1,21 +1,24 @@
+'use client';
+
 import { useRef } from 'react';
 import type { ReactElement, ReactNode } from 'react';
-import { Button } from '@/components/ui/button';
 import {
-    Dialog,
-    DialogClose,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from '@/components/ui/dialog';
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from '@/components/ui/alert-dialog';
 
 /**
  * Confirmation d'une action destructive ou coûteuse à défaire (plan 049) : titre en question, conséquence en une
  * phrase, « Annuler » reçoit le focus à l'ouverture pour qu'une frappe sur Entrée ne détruise
- * rien. `onConfirm` lance la requête (`router.delete`…) ; le dialogue se ferme quand la page
+ * rien. Bâti sur `AlertDialog` (`role="alertdialog"`, pas de fermeture au clic extérieur).
+ * `onConfirm` lance la requête (`router.delete`…) ; le dialogue se ferme quand la page
  * appelante repasse `open` à `false`, typiquement dans `onSuccess`.
  */
 export default function ConfirmDialog({
@@ -47,30 +50,29 @@ export default function ConfirmDialog({
     const cancelRef = useRef<HTMLButtonElement>(null);
 
     return (
-        <Dialog open={open} onOpenChange={onOpenChange}>
-            {trigger && <DialogTrigger render={trigger} />}
-            <DialogContent initialFocus={cancelRef}>
-                <DialogHeader>
-                    <DialogTitle>{title}</DialogTitle>
-                    <DialogDescription>{description}</DialogDescription>
-                </DialogHeader>
+        <AlertDialog open={open} onOpenChange={onOpenChange}>
+            {trigger && <AlertDialogTrigger render={trigger} />}
+            <AlertDialogContent initialFocus={cancelRef}>
+                <AlertDialogHeader>
+                    <AlertDialogTitle>{title}</AlertDialogTitle>
+                    <AlertDialogDescription>
+                        {description}
+                    </AlertDialogDescription>
+                </AlertDialogHeader>
                 {children}
-                <DialogFooter>
-                    <DialogClose
-                        ref={cancelRef}
-                        render={<Button variant="secondary" />}
-                    >
+                <AlertDialogFooter>
+                    <AlertDialogCancel ref={cancelRef} variant="secondary">
                         Annuler
-                    </DialogClose>
-                    <Button
+                    </AlertDialogCancel>
+                    <AlertDialogAction
                         variant={destructive ? 'destructive' : 'default'}
                         loading={processing}
                         onClick={onConfirm}
                     >
                         {confirmLabel}
-                    </Button>
-                </DialogFooter>
-            </DialogContent>
-        </Dialog>
+                    </AlertDialogAction>
+                </AlertDialogFooter>
+            </AlertDialogContent>
+        </AlertDialog>
     );
 }

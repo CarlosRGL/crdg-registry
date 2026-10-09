@@ -8,8 +8,12 @@ const alertVariants = cva(
     variants: {
       variant: {
         default: "bg-card text-card-foreground",
-        destructive:
-          "bg-card text-destructive *:data-[slot=alert-description]:text-destructive/90 *:[svg]:text-current",
+        // Variantes de statut alignées sur Badge : fond `-soft`, titre et icône dans le ton,
+        // description en encre secondaire (≥ 4,5:1 sur la teinte).
+        destructive: "border-destructive/25 bg-destructive-soft text-destructive *:data-[slot=alert-description]:text-fg-2",
+        success: "border-success/25 bg-success-soft text-success *:data-[slot=alert-description]:text-fg-2",
+        warning: "border-warning/25 bg-warning-soft text-warning *:data-[slot=alert-description]:text-fg-2",
+        info: "border-info/25 bg-info-soft text-info *:data-[slot=alert-description]:text-fg-2",
       },
     },
     defaultVariants: {

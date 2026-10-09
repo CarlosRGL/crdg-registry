@@ -40,10 +40,11 @@ export function RowsSkeleton({
         <SkeletonRegion label={label} className={cn('divide-y', className)}>
             {Array.from({ length: rows }, (_, index) => (
                 <div key={index} className="h-row flex items-center gap-3 px-4">
-                    <Skeleton className="size-4 rounded-full" />
+                    <Skeleton shape="circle" className="size-4" />
                     <Skeleton
                         className={cn(
                             'h-3',
+                            // oxlint-disable-next-line shadcn/require-static-classes -- ROW_WIDTHS only holds static width classes.
                             ROW_WIDTHS[index % ROW_WIDTHS.length],
                         )}
                     />
@@ -75,7 +76,7 @@ export function CardsSkeleton({
             {Array.from({ length: cards }, (_, index) => (
                 <div
                     key={index}
-                    className="bg-card shadow-card space-y-3 rounded-lg p-4"
+                    className="bg-card shadow-card flex flex-col gap-3 rounded-lg p-4"
                 >
                     <Skeleton className="h-3 w-1/3" />
                     <Skeleton className="h-5 w-1/2" />
@@ -98,13 +99,16 @@ export function ColumnSkeleton({
     return (
         <SkeletonRegion
             label={label}
-            className={cn('bg-muted space-y-2 rounded-lg p-2', className)}
+            className={cn(
+                'bg-muted flex flex-col gap-2 rounded-lg p-2',
+                className,
+            )}
         >
-            <Skeleton className="mb-3 h-3 w-1/3" />
+            <Skeleton className="mb-1 h-3 w-1/3" />
             {Array.from({ length: items }, (_, index) => (
                 <div
                     key={index}
-                    className="bg-card shadow-card space-y-2 rounded-md p-2.5"
+                    className="bg-card shadow-card flex flex-col gap-2 rounded-md p-2.5"
                 >
                     <Skeleton className="h-3 w-3/4" />
                     <Skeleton className="h-3 w-1/3" />

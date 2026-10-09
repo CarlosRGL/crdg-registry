@@ -1,3 +1,5 @@
+"use client"
+
 import { Button as ButtonPrimitive } from "@base-ui/react/button"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
@@ -20,7 +22,8 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-foreground aria-expanded:bg-accent aria-expanded:text-foreground",
         destructive:
-          "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
+          // Le survol fonce le libellé plutôt que la teinte : ≥ 5:1 au repos comme au survol.
+          "bg-destructive-soft text-destructive hover:bg-destructive/15 hover:text-[color-mix(in_oklab,var(--destructive),var(--foreground)_20%)] aria-expanded:bg-destructive/15 focus-visible:border-destructive/40 focus-visible:ring-destructive/20",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {

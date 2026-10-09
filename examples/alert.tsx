@@ -1,6 +1,6 @@
 'use client';
 
-import { CircleAlertIcon, InfoIcon } from 'lucide-react';
+import { CircleAlertIcon, CircleCheckIcon, InfoIcon, TriangleAlertIcon } from 'lucide-react';
 import { Alert, AlertAction, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 
@@ -11,6 +11,21 @@ export default function AlertExample() {
                 <InfoIcon />
                 <AlertTitle>Slots published</AlertTitle>
                 <AlertDescription>Residents can book right away.</AlertDescription>
+            </Alert>
+            <Alert variant="success">
+                <CircleCheckIcon />
+                <AlertTitle>Calendar synchronised</AlertTitle>
+                <AlertDescription>42 appointments imported from the previous tool.</AlertDescription>
+            </Alert>
+            <Alert variant="info">
+                <InfoIcon />
+                <AlertTitle>Maintenance on Sunday</AlertTitle>
+                <AlertDescription>Booking stays open; exports pause from 2am to 4am.</AlertDescription>
+            </Alert>
+            <Alert variant="warning">
+                <TriangleAlertIcon />
+                <AlertTitle>Few slots left</AlertTitle>
+                <AlertDescription>Only 3 slots remain this week.</AlertDescription>
             </Alert>
             <Alert variant="destructive">
                 <CircleAlertIcon />

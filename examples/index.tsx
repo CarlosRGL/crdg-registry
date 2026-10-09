@@ -2,6 +2,7 @@
 
 import type { ComponentType } from 'react';
 import alert from './alert';
+import alertDialog from './alert-dialog';
 import avatar from './avatar';
 import badge from './badge';
 import breadcrumb from './breadcrumb';
@@ -14,6 +15,7 @@ import dialog from './dialog';
 import dropdownMenu from './dropdown-menu';
 import emptyState from './empty-state';
 import errorState from './error-state';
+import field from './field';
 import icon from './icon';
 import input from './input';
 import inputOtp from './input-otp';
@@ -22,6 +24,8 @@ import navigationMenu from './navigation-menu';
 import offlineBanner from './offline-banner';
 import pagination from './pagination';
 import placeholderPattern from './placeholder-pattern';
+import popover from './popover';
+import radioGroup from './radio-group';
 import select from './select';
 import separator from './separator';
 import sheet from './sheet';
@@ -32,6 +36,8 @@ import sonner from './sonner';
 import spinner from './spinner';
 import switchExample from './switch';
 import table from './table';
+import tabs from './tabs';
+import textarea from './textarea';
 import toggle from './toggle';
 import toggleGroup from './toggle-group';
 import tooltip from './tooltip';
@@ -41,6 +47,7 @@ import useMobile from './use-mobile';
 /** Example by registry item name. The source file of each is examples/{name}.tsx. */
 const EXAMPLES: Record<string, ComponentType> = {
     alert,
+    'alert-dialog': alertDialog,
     avatar,
     badge,
     breadcrumb,
@@ -53,6 +60,7 @@ const EXAMPLES: Record<string, ComponentType> = {
     'dropdown-menu': dropdownMenu,
     'empty-state': emptyState,
     'error-state': errorState,
+    field,
     icon,
     input,
     'input-otp': inputOtp,
@@ -61,6 +69,8 @@ const EXAMPLES: Record<string, ComponentType> = {
     'offline-banner': offlineBanner,
     pagination,
     'placeholder-pattern': placeholderPattern,
+    popover,
+    'radio-group': radioGroup,
     select,
     separator,
     sheet,
@@ -71,6 +81,8 @@ const EXAMPLES: Record<string, ComponentType> = {
     spinner,
     switch: switchExample,
     table,
+    tabs,
+    textarea,
     toggle,
     'toggle-group': toggleGroup,
     tooltip,

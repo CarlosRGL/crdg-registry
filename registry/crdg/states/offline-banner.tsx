@@ -1,23 +1,26 @@
+'use client';
+
 import { WifiOff } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
 
 /** Bandeau hors ligne : suit `navigator.onLine`. */
+function subscribe(onChange: () => void) {
+    window.addEventListener('offline', onChange);
+    window.addEventListener('online', onChange);
+
+    return () => {
+        window.removeEventListener('offline', onChange);
+        window.removeEventListener('online', onChange);
+    };
+}
+
 export default function OfflineBanner() {
-    const [offline, setOffline] = useState(
-        () => typeof navigator !== 'undefined' && !navigator.onLine,
+    // Rendu serveur : en ligne par défaut, pour que l'hydratation ne diverge pas.
+    const offline = useSyncExternalStore(
+        subscribe,
+        () => !navigator.onLine,
+        () => false,
     );
-
-    useEffect(() => {
-        const goOffline = () => setOffline(true);
-        const goOnline = () => setOffline(false);
-        window.addEventListener('offline', goOffline);
-        window.addEventListener('online', goOnline);
-
-        return () => {
-            window.removeEventListener('offline', goOffline);
-            window.removeEventListener('online', goOnline);
-        };
-    }, []);
 
     if (!offline) {
         return null;

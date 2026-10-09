@@ -8,7 +8,7 @@
       "name": "loniar-theme",
       "type": "registry:theme",
       "title": "Loniar",
-      "description": "Warm neutrals, indigo accent, dense type scale (13.5px), warm shadows. Light and dark.",
+      "description": "Cool blue-grey neutrals, indigo accent, dense type scale (13.5px), cool shadows. Light and dark.",
       "author": "crdg",
       "registryDependencies": [
         "font-geist"
@@ -58,6 +58,7 @@
           "color-primary-line": "var(--primary-line)",
           "color-success-soft": "var(--success-soft)",
           "color-warning-soft": "var(--warning-soft)",
+          "color-info-soft": "var(--info-soft)",
           "color-destructive-soft": "var(--destructive-soft)",
           "shadow-card": "var(--elevation-card)",
           "shadow-pop": "var(--elevation-pop)",
@@ -101,11 +102,8 @@
           "color-foreground": "var(--foreground)",
           "color-background": "var(--background)",
           "color-success": "var(--success)",
-          "color-success-muted": "var(--success-muted)",
           "color-warning": "var(--warning)",
-          "color-warning-muted": "var(--warning-muted)",
           "color-info": "var(--info)",
-          "color-info-muted": "var(--info-muted)",
           "radius-sm": "calc(var(--radius) * 0.6)",
           "radius-md": "calc(var(--radius) * 0.8)",
           "radius-lg": "var(--radius)",
@@ -130,7 +128,7 @@
           "accent": "#eceef6",
           "accent-foreground": "#14161f",
           "destructive": "#c62e26",
-          "destructive-foreground": "#c62e26",
+          "destructive-foreground": "#ffffff",
           "border": "#e3e5ee",
           "border-strong": "#d2d6e4",
           "input": "#e3e5ee",
@@ -145,11 +143,8 @@
           "sidebar-border": "#e3e5ee",
           "sidebar-ring": "#5558d7",
           "success": "#007b32",
-          "success-muted": "#007b321f",
           "warning": "#a25700",
-          "warning-muted": "#a257001f",
           "info": "#1068cc",
-          "info-muted": "#1068cc1f",
           "tone-blue": "#0964c8",
           "tone-violet": "#7a4acb",
           "tone-teal": "#007369",
@@ -173,9 +168,10 @@
           "overlay": "rgb(18 20 34 / 0.28)",
           "primary-soft": "color-mix(in srgb, var(--primary) 10%, transparent)",
           "primary-line": "color-mix(in srgb, var(--primary) 38%, transparent)",
-          "success-soft": "color-mix(in srgb, var(--success) 11%, transparent)",
-          "warning-soft": "color-mix(in srgb, var(--warning) 12%, transparent)",
-          "destructive-soft": "color-mix(in srgb, var(--destructive) 10%, transparent)",
+          "success-soft": "color-mix(in srgb, var(--success) 8%, transparent)",
+          "warning-soft": "color-mix(in srgb, var(--warning) 8%, transparent)",
+          "info-soft": "color-mix(in srgb, var(--info) 8%, transparent)",
+          "destructive-soft": "color-mix(in srgb, var(--destructive) 8%, transparent)",
           "elevation-card": "0 1px 2px rgb(20 22 40 / 0.04), 0 0 0 1px var(--border)",
           "elevation-pop": "0 12px 32px -8px rgb(20 22 40 / 0.16), 0 2px 6px -2px rgb(20 22 40 / 0.06), 0 0 0 1px var(--border)",
           "elevation-drag": "0 16px 36px -10px rgb(20 22 40 / 0.28), 0 0 0 1px var(--border-strong)",
@@ -201,7 +197,7 @@
           "accent": "#272832",
           "accent-foreground": "#eceef5",
           "destructive": "#e57d70",
-          "destructive-foreground": "#e57d70",
+          "destructive-foreground": "#14151f",
           "border": "#2a2c36",
           "border-strong": "#373946",
           "input": "#2a2c36",
@@ -215,11 +211,8 @@
           "sidebar-border": "#22232b",
           "sidebar-ring": "#8e9af3",
           "success": "#5cba86",
-          "success-muted": "#5cba8624",
           "warning": "#d8a443",
-          "warning-muted": "#d8a44324",
           "info": "#72a5ea",
-          "info-muted": "#72a5ea24",
           "tone-blue": "#72a5ea",
           "tone-violet": "#a98deb",
           "tone-teal": "#58c0b6",
@@ -278,6 +271,7 @@
       "title": "Loniar (theme + components)",
       "registryDependencies": [
         "@crdg/loniar-theme",
+        "@crdg/alert-dialog",
         "@crdg/alert",
         "@crdg/avatar",
         "@crdg/badge",
@@ -288,6 +282,7 @@
         "@crdg/collapsible",
         "@crdg/dialog",
         "@crdg/dropdown-menu",
+        "@crdg/field",
         "@crdg/icon",
         "@crdg/input-otp",
         "@crdg/input",
@@ -295,6 +290,8 @@
         "@crdg/navigation-menu",
         "@crdg/pagination",
         "@crdg/placeholder-pattern",
+        "@crdg/popover",
+        "@crdg/radio-group",
         "@crdg/select",
         "@crdg/separator",
         "@crdg/sheet",
@@ -304,6 +301,8 @@
         "@crdg/spinner",
         "@crdg/switch",
         "@crdg/table",
+        "@crdg/tabs",
+        "@crdg/textarea",
         "@crdg/toggle-group",
         "@crdg/toggle",
         "@crdg/tooltip",
@@ -314,6 +313,23 @@
         "@crdg/skeletons",
         "@crdg/use-mobile",
         "@crdg/use-appearance"
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "@crdg/button",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/crdg/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
       ]
     },
     {
@@ -481,6 +497,24 @@
       ]
     },
     {
+      "name": "field",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "@crdg/label",
+        "@crdg/separator",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/crdg/ui/field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "icon",
       "type": "registry:ui",
       "dependencies": [
@@ -589,6 +623,38 @@
       ]
     },
     {
+      "name": "popover",
+      "type": "registry:ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/crdg/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/crdg/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "select",
       "type": "registry:ui",
       "dependencies": [
@@ -667,7 +733,9 @@
     {
       "name": "skeleton",
       "type": "registry:ui",
-      "dependencies": [],
+      "dependencies": [
+        "class-variance-authority"
+      ],
       "registryDependencies": [
         "utils"
       ],
@@ -742,6 +810,37 @@
       ]
     },
     {
+      "name": "tabs",
+      "type": "registry:ui",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/crdg/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/crdg/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "toggle-group",
       "type": "registry:ui",
       "dependencies": [
@@ -797,8 +896,7 @@
       "type": "registry:component",
       "dependencies": [],
       "registryDependencies": [
-        "@crdg/button",
-        "@crdg/dialog"
+        "@crdg/alert-dialog"
       ],
       "files": [
         {

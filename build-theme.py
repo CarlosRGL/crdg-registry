@@ -26,7 +26,7 @@ item = {
     "name": "loniar-theme",
     "type": "registry:theme",
     "title": "Loniar",
-    "description": "Warm neutrals, indigo accent, dense type scale (13.5px), warm shadows. Light and dark.",
+    "description": "Cool blue-grey neutrals, indigo accent, dense type scale (13.5px), cool shadows. Light and dark.",
     "author": "crdg",
     "registryDependencies": ["font-geist"],
     "dependencies": ["tw-animate-css"],

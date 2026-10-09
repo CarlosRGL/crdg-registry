@@ -11,7 +11,17 @@ def portable(code):
     # The project imports `cn` from the "cn" npm package; the registry uses the shadcn utility instead.
     return re.sub(r'''from ["']cn["']''', 'from "@/lib/utils"', code)
 
+# Vernalis (Inertia, no RSC) strips "use client"; registry consumers may be Next App Router projects.
+CLIENT = re.compile(r'''\buse[A-Z]\w*(<[^>]*>)?\(|createContext|from ["']@base-ui/react/(?!merge-props["'])[\w-]+["']|from ["'](sonner|input-otp)["']''')
+
+def client(code):
+    if not CLIENT.search(code) or re.match(r'''["']use client["']''', code):
+        return code
+    return ("'use client';\n\n" if "from '" in code else '"use client"\n\n') + code
+
 def item(name, kind, rel, target, code):
+    if kind in ('registry:ui', 'registry:component'):
+        code = client(code)
     path = OUT / rel
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(code)
@@ -38,11 +48,11 @@ for p in sorted((SRC / 'components/ui').glob('*.tsx')):
 for p in sorted((SRC / 'components/states').glob('*.tsx')):
     code = portable(p.read_text())
     if p.stem == 'offline-banner':
+        # The registry keeps the banner only: the Inertia network-error toast lives in use-inertia-toasts.
         code = code.replace("import { router } from '@inertiajs/react';\n", '').replace("import { toast } from 'sonner';\n", '')
-        start = code.index('\n        // L')
-        end = code.index('        return () => {')
-        code = code[:start] + '\n' + code[end:]
-        code = code.replace('            stopTracking();\n            stopListening();\n', '')
+        code = code.replace('import { useEffect, useSyncExternalStore }', 'import { useSyncExternalStore }')
+        code, n = re.subn(r'\n    useEffect\(\(\) => \{\n.*?\n    \}, \[\]\);\n', '', code, flags=re.S)
+        assert n == 1, 'offline-banner: Inertia effect not found'
         code = re.sub(r'/\*\*.*?\*/', '/** Bandeau hors ligne : suit `navigator.onLine`. */', code, count=1, flags=re.S)
     items.append(item(p.stem, 'registry:component', f'states/{p.name}', f'components/states/{p.name}', code))
 

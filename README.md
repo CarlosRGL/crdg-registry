@@ -21,6 +21,26 @@ npx shadcn add @crdg/use-inertia-toasts  # Inertia projects: Laravel flash → t
 Call `useInertiaToasts()` once, next to the `<Toaster />`. Call `initializeTheme()`
 (`@crdg/use-appearance`) when the app starts.
 
+## What the theme changes in your project
+
+- **Type scale.** `loniar-theme` redefines Tailwind's scale for the whole project: `text-sm` is
+  13.5px (body), `text-base` 14.5px, plus `text-meta` (12.5px) and `text-2xs` (11px).
+  Components from other registries render denser too. Text fields stay at 16px below `md` so
+  iOS Safari does not zoom on focus.
+- **Control heights.** `h-control-xs|sm|md|lg` (22 / 26 / 30 / 36px) size buttons, inputs and selects together.
+- **Status colors.** `success`, `warning`, `info`, `destructive`, each with a `-soft` tint
+  (8%) that keeps the status text at 4.5:1 or more on a card and on the page background.
+  `destructive-foreground` is the text on a solid `bg-destructive`.
+- **Field borders.** `--input` equals `--border` and sits below the WCAG 1.4.11 3:1 ratio on
+  purpose (it darkens to `--border-strong` on hover). Raise it if your project must meet 1.4.11.
+- **App tokens not used by the components**, available to your screens: ink levels `fg-2|3|4`
+  (`fg-4` is decorative only, 3.4:1), surfaces `surface-2|3`, `sunken`, `divider`, `primary-soft`,
+  `primary-line`, elevations `shadow-card|pop|drag`, easings `ease-gr8r|spring|drawer`,
+  `tone-*` and `chart-1..5`, layout `spacing-row|topbar`.
+
+Components that use hooks or Base UI primitives ship with `"use client"`, so they work in
+Next.js App Router server components.
+
 ## Developing the showcase
 
 ```bash

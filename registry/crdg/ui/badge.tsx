@@ -1,3 +1,5 @@
+"use client"
+
 import { mergeProps } from "@base-ui/react/merge-props"
 import { useRender } from "@base-ui/react/use-render"
 import { cva, type VariantProps } from "class-variance-authority"
@@ -12,10 +14,10 @@ const badgeVariants = cva(
         secondary:
           "bg-secondary text-secondary-foreground [a]:hover:bg-secondary/80",
         destructive:
-          "bg-destructive/10 text-destructive focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:focus-visible:ring-destructive/40 [a]:hover:bg-destructive/20",
-        success: "bg-success-muted text-success [a]:hover:bg-success-muted/80",
-        warning: "bg-warning-muted text-warning [a]:hover:bg-warning-muted/80",
-        info: "bg-info-muted text-info [a]:hover:bg-info-muted/80",
+          "bg-destructive-soft text-destructive focus-visible:ring-destructive/20 [a]:hover:bg-destructive/15 [a]:hover:text-[color-mix(in_oklab,var(--destructive),var(--foreground)_20%)]",
+        success: "bg-success-soft text-success [a]:hover:bg-success/15",
+        warning: "bg-warning-soft text-warning [a]:hover:bg-warning/15",
+        info: "bg-info-soft text-info [a]:hover:bg-info/15",
         outline:
           "border-border text-foreground [a]:hover:bg-muted [a]:hover:text-muted-foreground",
         ghost:
