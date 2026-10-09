@@ -25,9 +25,11 @@ export default function NavigationMenuExample() {
                         <ul className="grid w-80 gap-1 p-2">
                             {DEMARCHES.map((item) => (
                                 <li key={item.title}>
-                                    <NavigationMenuLink href="#" className="flex-col items-start gap-0.5">
-                                        <span className="font-medium">{item.title}</span>
-                                        <span className="text-muted-foreground">{item.description}</span>
+                                    <NavigationMenuLink href="#">
+                                        <div className="flex flex-col gap-0.5">
+                                            <span className="font-medium">{item.title}</span>
+                                            <span className="text-muted-foreground">{item.description}</span>
+                                        </div>
                                     </NavigationMenuLink>
                                 </li>
                             ))}

@@ -22,7 +22,7 @@ export async function CodeBlock({
                 <CopyButton value={code} />
             </div>
             <div
-                className="max-h-[32rem] overflow-auto p-3 font-mono text-[12.5px] leading-5 [&_pre]:outline-none"
+                className="max-h-[32rem] overflow-auto p-3 font-mono text-meta leading-5 [&_pre]:outline-none"
                 dangerouslySetInnerHTML={{ __html: html }}
             />
         </figure>
@@ -32,7 +32,7 @@ export async function CodeBlock({
 /** Copyable one-line command : `npx shadcn add @crdg/...`. */
 export function Command({ value }: { value: string }) {
     return (
-        <div className="flex items-center justify-between gap-2 rounded-lg border bg-surface-2 py-1 pr-1 pl-3 font-mono text-[12.5px]">
+        <div className="flex items-center justify-between gap-2 rounded-lg border bg-surface-2 py-1 pr-1 pl-3 font-mono text-meta">
             <code className="overflow-x-auto whitespace-nowrap">
                 <span className="text-muted-foreground select-none">$ </span>
                 {value}

@@ -15,6 +15,7 @@
     "incremental": true,
     "plugins": [{ "name": "next" }],
     "paths": {
+      "@/components/ui": ["./registry/crdg/ui"],
       "@/components/ui/*": ["./registry/crdg/ui/*"],
       "@/components/states/*": ["./registry/crdg/states/*"],
       "@/hooks/*": ["./registry/crdg/hooks/*"],

@@ -1,0 +1,36 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "jsPlugins": ["@shadcn/lint"],
+  "rules": {
+    "shadcn/no-raw-colors": "error",
+    "shadcn/no-unknown-classes": [
+      "error",
+      { "allow": ["toaster", "cn-input-otp"] }
+    ],
+    "shadcn/require-static-classes": "error",
+    "shadcn/no-arbitrary-values": ["error", { "allow": ["layout"] }],
+    "shadcn/no-restyle": [
+      "error",
+      {
+        "allow": ["layout", "h-control-*"],
+        "contracts": [
+          { "pattern": "^Label$", "allow": ["layout", "spacing"] },
+          { "pattern": "^(Collapsible|CollapsibleContent)$", "allow": ["layout", "spacing"] },
+          { "pattern": "^(Spinner|Icon|PlaceholderPattern)$", "allow": ["layout", "color"] },
+          { "pattern": "^AvatarBadge$", "allow": ["layout", "bg-color"] },
+          { "pattern": "^TableCell$", "allow": ["layout", "typography"] }
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["registry/crdg/ui/**"],
+      "rules": {
+        "shadcn/no-restyle": "off",
+        "shadcn/no-arbitrary-values": "off",
+        "shadcn/require-static-classes": "off"
+      }
+    }
+  ]
+}

@@ -3,7 +3,8 @@
 import { CheckIcon, CopyIcon } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+
+const ICON = 'text-muted-foreground group-hover/button:text-foreground';
 
 export function CopyButton({ value, className }: { value: string; className?: string }) {
     const [copied, setCopied] = useState(false);
@@ -12,7 +13,7 @@ export function CopyButton({ value, className }: { value: string; className?: st
         <Button
             variant="ghost"
             size="icon-sm"
-            className={cn('text-muted-foreground', className)}
+            className={className}
             aria-label={copied ? 'Copied' : 'Copy'}
             onClick={async () => {
                 await navigator.clipboard.writeText(value);
@@ -20,7 +21,7 @@ export function CopyButton({ value, className }: { value: string; className?: st
                 setTimeout(() => setCopied(false), 1500);
             }}
         >
-            {copied ? <CheckIcon /> : <CopyIcon />}
+            {copied ? <CheckIcon className={ICON} /> : <CopyIcon className={ICON} />}
         </Button>
     );
 }

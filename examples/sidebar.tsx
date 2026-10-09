@@ -30,7 +30,9 @@ export default function SidebarExample() {
         <div className="h-96 w-full overflow-hidden rounded-lg border [&_[data-slot=sidebar-container]]:absolute">
             <SidebarProvider className="relative min-h-0 h-full">
                 <Sidebar collapsible="icon">
-                    <SidebarHeader className="px-3 py-2 font-semibold">City Hall</SidebarHeader>
+                    <SidebarHeader>
+                        <span className="px-1 font-semibold">City Hall</span>
+                    </SidebarHeader>
                     <SidebarContent>
                         <SidebarGroup>
                             <SidebarGroupLabel>Counters</SidebarGroupLabel>
@@ -50,9 +52,11 @@ export default function SidebarExample() {
                         </SidebarGroup>
                     </SidebarContent>
                 </Sidebar>
-                <SidebarInset className="p-4">
-                    <SidebarTrigger />
-                    <p className="mt-3 text-muted-foreground">The trigger collapses the bar to icons.</p>
+                <SidebarInset>
+                    <div className="p-4">
+                        <SidebarTrigger />
+                        <p className="mt-3 text-muted-foreground">The trigger collapses the bar to icons.</p>
+                    </div>
                 </SidebarInset>
             </SidebarProvider>
         </div>

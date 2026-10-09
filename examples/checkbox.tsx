@@ -6,15 +6,15 @@ import { Label } from '@/components/ui/label';
 export default function CheckboxExample() {
     return (
         <div className="flex flex-col gap-3">
-            <Label className="flex items-center gap-2">
+            <Label>
                 <Checkbox defaultChecked />
                 Send a reminder by SMS
             </Label>
-            <Label className="flex items-center gap-2">
+            <Label>
                 <Checkbox />
                 Send a reminder by email
             </Label>
-            <Label className="flex items-center gap-2 opacity-60">
+            <Label>
                 <Checkbox disabled />
                 Option unavailable
             </Label>
